@@ -1,0 +1,20 @@
+DISPLAY {
+    L0 = top_s
+}
+DISPLAY {
+    L0 = top_s
+    L1 = top_r
+}
+DISPLAY {
+    L0 = top_s
+    L1 = top_p
+}
+DISPLAY {
+    L0 = top_s
+    L1 = nc_ds
+    L2 = top_r
+}
+DISPLAY {
+    L0 = top_s
+    L1 = rout_1
+}

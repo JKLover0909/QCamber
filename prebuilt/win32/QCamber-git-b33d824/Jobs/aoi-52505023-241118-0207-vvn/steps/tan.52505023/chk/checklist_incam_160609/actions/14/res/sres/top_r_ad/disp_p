@@ -1,0 +1,15 @@
+DISPLAY {
+    L0 = top_r_ad
+}
+DISPLAY {
+    L0 = top_r_ad
+    L1 = nc_ds
+}
+DISPLAY {
+    L0 = top_r_ad
+    L1 = top_p
+}
+DISPLAY {
+    L0 = top_r_ad
+    L1 = rout_1
+}

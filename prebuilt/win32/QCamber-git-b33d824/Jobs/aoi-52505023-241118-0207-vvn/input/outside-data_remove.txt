@@ -1,0 +1,14 @@
+Outside Data Remove Report
+
+JOB Name : 52505023new
+Step Name : 2nd.52505023new
+Date : 2020/1/15 10:27
+
+top_s Outside Data Not Remove
+top_r Outside Data Remove
+top_p Outside Data Not Remove
+i_2 Outside Data Not Remove
+i_3 Outside Data Not Remove
+bot_p Outside Data Not Remove
+bot_r Outside Data Not Remove
+bot_s Outside Data Not Remove

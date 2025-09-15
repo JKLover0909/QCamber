@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F0B1983A-BC10-3FD1-BC6C-E7238D419506}</ProjectGuid>
+    <RootNamespace>qcamber</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.26100.0</WindowsTargetPlatformMinVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v143</PlatformToolset>
+    <OutputDirectory>..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>.build\</IntermediateDirectory>
+    <PrimaryOutput>qcamber</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v143</PlatformToolset>
+    <OutputDirectory>..\bin\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>.build\</IntermediateDirectory>
+    <PrimaryOutput>qcamber</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>6.9.2_msvc2022_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>6.9.2_msvc2022_64</QtInstall>
+    <QtModules>core;gui;widgets</QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.build\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">qcamber</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\bin\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.build\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">qcamber</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;.build;parser;parser\odbpp;symbol;gui;graphicsview;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 -w34100 -w34189 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>.build\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>.build\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>
+      </ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\Qt6EntryPoint.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\qcamber.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>0.1</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./.build/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>.build</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <InitFuncName>resources</InitFuncName>
+      <NoZstd>true</NoZstd>
+      <Compression>default</Compression>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>.build</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>.build</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;.build;parser;parser\odbpp;symbol;gui;graphicsview;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -utf-8 -w34100 -w34189 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>.build\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ObjectFileName>.build\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>$(QTDIR)\lib\Qt6EntryPointd.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\qcamber.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>0.1</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <QtMoc>
+      <CompilerFlavor>msvc</CompilerFlavor>
+      <Include>./.build/moc_predefs.h</Include>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>.build</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtRcc>
+      <InitFuncName>resources</InitFuncName>
+      <Compression>default</Compression>
+      <NoZstd>true</NoZstd>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <QtRccDir>.build</QtRccDir>
+      <QtRccFileName>qrc_%(Filename).cpp</QtRccFileName>
+    </QtRcc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>.build</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="archiveloader.cpp" />
+    <ClCompile Include="parser\arcrecord.cpp" />
+    <ClCompile Include="symbol\arcsymbol.cpp" />
+    <ClCompile Include="parser\barcoderecord.cpp" />
+    <ClCompile Include="symbol\barcodesymbol.cpp" />
+    <ClCompile Include="symbol\butterflysymbol.cpp" />
+    <ClCompile Include="parser\charrecord.cpp" />
+    <ClCompile Include="gui\clickablelabel.cpp" />
+    <ClCompile Include="parser\code39.cpp" />
+    <ClCompile Include="context.cpp" />
+    <ClCompile Include="symbol\diamondsymbol.cpp" />
+    <ClCompile Include="symbol\donutrsymbol.cpp" />
+    <ClCompile Include="symbol\donutssymbol.cpp" />
+    <ClCompile Include="symbol\ellipsesymbol.cpp" />
+    <ClCompile Include="gui\featurepropertiesdialog.cpp" />
+    <ClCompile Include="parser\featuresdatastore.cpp" />
+    <ClCompile Include="gui\featureshistogramwidget.cpp" />
+    <ClCompile Include="parser\odbpp\featuresparser.cpp" />
+    <ClCompile Include="parser\fontdatastore.cpp" />
+    <ClCompile Include="parser\odbpp\fontparser.cpp" />
+    <ClCompile Include="graphicsview\graphicslayer.cpp" />
+    <ClCompile Include="graphicsview\graphicslayerscene.cpp" />
+    <ClCompile Include="symbol\halfovalsymbol.cpp" />
+    <ClCompile Include="symbol\holesymbol.cpp" />
+    <ClCompile Include="symbol\horizontalhexagonsymbol.cpp" />
+    <ClCompile Include="gui\jobmanagerdialog.cpp" />
+    <ClCompile Include="gui\jobmatrix.cpp" />
+    <ClCompile Include="graphicsview\layer.cpp" />
+    <ClCompile Include="graphicsview\layerfeatures.cpp" />
+    <ClCompile Include="gui\layerinfobox.cpp" />
+    <ClCompile Include="parser\linerecord.cpp" />
+    <ClCompile Include="symbol\linesymbol.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="graphicsview\measuregraphicsitem.cpp" />
+    <ClCompile Include="symbol\moiresymbol.cpp" />
+    <ClCompile Include="parser\noterecord.cpp" />
+    <ClCompile Include="graphicsview\notes.cpp" />
+    <ClCompile Include="parser\notesdatastore.cpp" />
+    <ClCompile Include="parser\odbpp\notesparser.cpp" />
+    <ClCompile Include="symbol\notesymbol.cpp" />
+    <ClCompile Include="symbol\nullsymbol.cpp" />
+    <ClCompile Include="symbol\octagonsymbol.cpp" />
+    <ClCompile Include="graphicsview\odbppgraphicsminimapview.cpp" />
+    <ClCompile Include="graphicsview\odbppgraphicsscene.cpp" />
+    <ClCompile Include="graphicsview\odbppgraphicsview.cpp" />
+    <ClCompile Include="symbol\originsymbol.cpp" />
+    <ClCompile Include="symbol\ovalsymbol.cpp" />
+    <ClCompile Include="parser\padrecord.cpp" />
+    <ClCompile Include="parser\parser.cpp" />
+    <ClCompile Include="graphicsview\profile.cpp" />
+    <ClCompile Include="symbol\rectanglesymbol.cpp" />
+    <ClCompile Include="symbol\rectangularthermalopencornerssymbol.cpp" />
+    <ClCompile Include="symbol\rectangularthermalsymbol.cpp" />
+    <ClCompile Include="symbol\roundsymbol.cpp" />
+    <ClCompile Include="symbol\roundthermalroundsymbol.cpp" />
+    <ClCompile Include="symbol\roundthermalsquaresymbol.cpp" />
+    <ClCompile Include="settings.cpp" />
+    <ClCompile Include="gui\settingsdialog.cpp" />
+    <ClCompile Include="symbol\squarebutterflysymbol.cpp" />
+    <ClCompile Include="symbol\squareroundthermalsymbol.cpp" />
+    <ClCompile Include="symbol\squaresymbol.cpp" />
+    <ClCompile Include="symbol\squarethermalopencornerssymbol.cpp" />
+    <ClCompile Include="symbol\squarethermalsymbol.cpp" />
+    <ClCompile Include="parser\structuredtextdatastore.cpp" />
+    <ClCompile Include="parser\odbpp\structuredtextparser.cpp" />
+    <ClCompile Include="parser\surfacerecord.cpp" />
+    <ClCompile Include="symbol\surfacesymbol.cpp" />
+    <ClCompile Include="symbol\symbol.cpp" />
+    <ClCompile Include="gui\symbolcount.cpp" />
+    <ClCompile Include="symbolpool.cpp" />
+    <ClCompile Include="parser\textrecord.cpp" />
+    <ClCompile Include="symbol\textsymbol.cpp" />
+    <ClCompile Include="symbol\trianglesymbol.cpp" />
+    <ClCompile Include="symbol\usersymbol.cpp" />
+    <ClCompile Include="symbol\verticalhexagonsymbol.cpp" />
+    <ClCompile Include="gui\viewerwindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="archiveloader.h" />
+    <ClInclude Include="logger.h" />
+    <ClInclude Include="symbol\arcsymbol.h" />
+    <ClInclude Include="symbol\barcodesymbol.h" />
+    <ClInclude Include="symbol\butterflysymbol.h" />
+    <ClInclude Include="parser\odbpp\cachedparser.h" />
+    <QtMoc Include="gui\clickablelabel.h" />
+    <ClInclude Include="parser\code39.h" />
+    <ClInclude Include="context.h" />
+    <ClInclude Include="parser\datastore.h" />
+    <ClInclude Include=".build\db.tab.h" />
+    <ClInclude Include="symbol\diamondsymbol.h" />
+    <ClInclude Include="symbol\donutrsymbol.h" />
+    <ClInclude Include="symbol\donutssymbol.h" />
+    <ClInclude Include="symbol\ellipsesymbol.h" />
+    <QtMoc Include="gui\featurepropertiesdialog.h" />
+    <ClInclude Include="parser\featuresdatastore.h" />
+    <QtMoc Include="gui\featureshistogramwidget.h" />
+    <ClInclude Include="parser\odbpp\featuresparser.h" />
+    <ClInclude Include="parser\fontdatastore.h" />
+    <ClInclude Include="parser\odbpp\fontparser.h" />
+    <ClInclude Include="graphicsview\graphicslayer.h" />
+    <QtMoc Include="graphicsview\graphicslayerscene.h" />
+    <ClInclude Include="symbol\halfovalsymbol.h" />
+    <ClInclude Include="symbol\holesymbol.h" />
+    <ClInclude Include="symbol\horizontalhexagonsymbol.h" />
+    <QtMoc Include="gui\jobmanagerdialog.h" />
+    <QtMoc Include="gui\jobmatrix.h" />
+    <ClInclude Include="graphicsview\layer.h" />
+    <ClInclude Include="graphicsview\layerfeatures.h" />
+    <QtMoc Include="gui\layerinfobox.h" />
+    <ClInclude Include="symbol\linesymbol.h" />
+    <ClInclude Include="macros.h" />
+    <ClInclude Include="graphicsview\measuregraphicsitem.h" />
+    <ClInclude Include="symbol\moiresymbol.h" />
+    <ClInclude Include="graphicsview\notes.h" />
+    <ClInclude Include="parser\notesdatastore.h" />
+    <ClInclude Include="parser\odbpp\notesparser.h" />
+    <ClInclude Include="symbol\notesymbol.h" />
+    <ClInclude Include="symbol\nullsymbol.h" />
+    <ClInclude Include="symbol\octagonsymbol.h" />
+    <QtMoc Include="graphicsview\odbppgraphicsminimapview.h" />
+    <QtMoc Include="graphicsview\odbppgraphicsscene.h" />
+    <QtMoc Include="graphicsview\odbppgraphicsview.h" />
+    <ClInclude Include="symbol\originsymbol.h" />
+    <ClInclude Include="symbol\ovalsymbol.h" />
+    <ClInclude Include="parser\parser.h" />
+    <ClInclude Include="graphicsview\profile.h" />
+    <ClInclude Include="parser\record.h" />
+    <ClInclude Include="symbol\rectanglesymbol.h" />
+    <ClInclude Include="symbol\rectangularthermalopencornerssymbol.h" />
+    <ClInclude Include="symbol\rectangularthermalsymbol.h" />
+    <ClInclude Include="symbol\roundsymbol.h" />
+    <ClInclude Include="symbol\roundthermalroundsymbol.h" />
+    <ClInclude Include="symbol\roundthermalsquaresymbol.h" />
+    <ClInclude Include="settings.h" />
+    <QtMoc Include="gui\settingsdialog.h" />
+    <ClInclude Include="symbol\squarebutterflysymbol.h" />
+    <ClInclude Include="symbol\squareroundthermalsymbol.h" />
+    <ClInclude Include="symbol\squaresymbol.h" />
+    <ClInclude Include="symbol\squarethermalopencornerssymbol.h" />
+    <ClInclude Include="symbol\squarethermalsymbol.h" />
+    <ClInclude Include="parser\structuredtextdatastore.h" />
+    <ClInclude Include="parser\odbpp\structuredtextparser.h" />
+    <ClInclude Include="symbol\surfacesymbol.h" />
+    <ClInclude Include="symbol\symbol.h" />
+    <QtMoc Include="gui\symbolcount.h" />
+    <ClInclude Include="symbol\symbolfactory.h" />
+    <ClInclude Include="symbolpool.h" />
+    <ClInclude Include="symbol\textsymbol.h" />
+    <ClInclude Include="symbol\trianglesymbol.h" />
+    <ClInclude Include="symbol\usersymbol.h" />
+    <ClInclude Include="symbol\verticalhexagonsymbol.h" />
+    <QtMoc Include="gui\viewerwindow.h" />
+    <ClInclude Include="parser\odbpp\yyheader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".build\db.lex.cpp" />
+    <ClCompile Include=".build\db.tab.cpp" />
+    <CustomBuild Include=".build\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -O2 -MD -std:c++17 -utf-8 -W3 -w34100 -w34189 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;.build\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.build\moc_predefs.h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -permissive- -Zc:__cplusplus -Zc:externConstexpr -Zi -MDd -std:c++17 -utf-8 -W3 -w34100 -w34189 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;.build\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.build\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="gui\featurepropertiesdialog.ui" />
+    <QtUic Include="gui\featureshistogramwidget.ui" />
+    <QtUic Include="gui\jobmanagerdialog.ui" />
+    <QtUic Include="gui\jobmatrix.ui" />
+    <QtUic Include="gui\layerinfobox.ui" />
+    <QtUic Include="gui\settingsdialog.ui" />
+    <QtUic Include="gui\symbolcount.ui" />
+    <QtUic Include="gui\viewerwindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\back.png" />
+    <None Include="icons\document-properties.png" />
+    <None Include="icons\down.png" />
+    <None Include="icons\forward.png" />
+    <None Include="icons\gtk-fullscreen.png" />
+    <None Include="icons\gtk-leave-fullscreen.png" />
+    <None Include="icons\gtk-underline.png" />
+    <None Include="icons\ok.png" />
+    <None Include="icons\remove.png" />
+    <QtRcc Include="resources.qrc" />
+    <None Include="icons\screenruler.png" />
+    <None Include="icons\stock_print-setup.png" />
+    <None Include="icons\up.png" />
+    <None Include="icons\view-list-icons.png" />
+    <None Include="icons\visualization.png" />
+    <None Include="icons\zoom-in.png" />
+    <None Include="icons\zoom-original.png" />
+    <None Include="icons\zoom-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="parser\odbpp\db.l">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">parser\odbpp\db.l;.build\db.tab.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">flex -o.build/db.lex.cpp parser\odbpp\db.l</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">flex</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.build\db.lex.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">parser\odbpp\db.l;.build\db.tab.h;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_flex -o.build/db.lex.cpp parser\odbpp\db.l</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_flex</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.build\db.lex.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="parser\odbpp\db.y">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">parser\odbpp\db.y;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">bison -t -v parser\odbpp\db.y -o .build/db.tab.cpp --defines=.build/db.tab.h
+if errorlevel 1 goto VCEnd
+@true</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">bison, bison header</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.build\db.tab.cpp;.build\db.tab.h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">parser\odbpp\db.y;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_bison -t -v parser\odbpp\db.y -o .build/db.tab.cpp --defines=.build/db.tab.h
+if errorlevel 1 goto VCEnd
+@true</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">win_bison, win_bison header</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.build\db.tab.cpp;.build\db.tab.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\qcamber_resource.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

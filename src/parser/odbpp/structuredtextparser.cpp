@@ -47,17 +47,11 @@ StructuredTextParser::~StructuredTextParser()
 StructuredTextDataStore* StructuredTextParser::parse(void)
 {
 #ifdef Q_OS_WIN
-  if (QSysInfo::WindowsVersion == QSysInfo::WV_XP) {
-    wchar_t buf[BUFSIZ];
-    memset(buf, 0, sizeof(wchar_t) * BUFSIZ);
-    m_fileName.toWCharArray(buf);
-
-    yyin = _wfopen(buf, (const wchar_t*)"r");
-  } else {
-    yyin = fopen(m_fileName.toLatin1(), "r");
-  }
+  // Use wide-char fopen on Windows to support Unicode file paths
+  std::wstring wpath = m_fileName.toStdWString();
+  yyin = _wfopen(wpath.c_str(), L"r");
 #else
-  yyin = fopen(m_fileName.toLatin1(), "r");
+  yyin = fopen(m_fileName.toLocal8Bit().constData(), "r");
 #endif
 
   if (yyin == NULL) {

@@ -26,27 +26,51 @@
 
 #include "cachedparser.h"
 #include "context.h"
+#include "logger.h"
 
 LayerFeatures::LayerFeatures(QString step, QString path, bool stepRepeat):
   Symbol("features"), m_step(step), m_path(path), m_scene(NULL),
   m_stepRepeatLoaded(false), m_showStepRepeat(stepRepeat),
   m_reportModel(NULL)
 {
+  LOG_STEP(QString("LayerFeatures constructor"), QString("Step: %1, Path: %2").arg(step, path));
   setHandlesChildEvents(true);
 
-  m_ds = CachedFeaturesParser::parse(ctx.loader->absPath(path.arg(step)));
+  QString fullPath = ctx.loader->absPath(path.arg(step));
+  LOG_INFO(QString("Parsing features file: %1").arg(fullPath));
+  
+  m_ds = CachedFeaturesParser::parse(fullPath);
 
   if (!m_ds) {
+    LOG_ERROR(QString("Failed to parse features file: %1").arg(fullPath));
     return;
   }
 
+  LOG_INFO(QString("Features file parsed successfully, records count: %1").arg(m_ds->records().size()));
+
+  int symbolCount = 0;
   for (QList<Record*>::const_iterator it = m_ds->records().begin();
       it != m_ds->records().end(); ++it) {
-    m_symbols.append((*it)->createSymbol());
+    try {
+      Symbol* symbol = (*it)->createSymbol();
+      if (symbol) {
+        m_symbols.append(symbol);
+        symbolCount++;
+      } else {
+        LOG_WARNING("Failed to create symbol from record");
+      }
+    } catch (const std::exception& e) {
+      LOG_ERROR(QString("Exception creating symbol: %1").arg(e.what()));
+    } catch (...) {
+      LOG_ERROR("Unknown exception creating symbol");
+    }
   }
 
+  LOG_INFO(QString("Created %1 symbols from %2 records").arg(symbolCount).arg(m_ds->records().size()));
+
+  // Copy count maps
   m_posLineCount = m_ds->posLineCountMap();
-  m_negLineCount = m_ds->posLineCountMap();
+  m_negLineCount = m_ds->negLineCountMap();
   m_posPadCount = m_ds->posPadCountMap();
   m_negPadCount = m_ds->negPadCountMap();
   m_posArcCount = m_ds->posArcCountMap();
@@ -58,13 +82,25 @@ LayerFeatures::LayerFeatures(QString step, QString path, bool stepRepeat):
   m_posBarcodeCount = m_ds->posBarcodeCount();
   m_negBarcodeCount = m_ds->negBarcodeCount();
 
+  LOG_INFO(QString("Feature counts - Lines: %1/%2, Pads: %3/%4, Arcs: %5/%6, Surfaces: %7/%8, Text: %9/%10, Barcodes: %11/%12")
+          .arg(m_posLineCount.size()).arg(m_negLineCount.size())
+          .arg(m_posPadCount.size()).arg(m_negPadCount.size())
+          .arg(m_posArcCount.size()).arg(m_negArcCount.size())
+          .arg(m_posSurfaceCount).arg(m_negSurfaceCount)
+          .arg(m_posTextCount).arg(m_negTextCount)
+          .arg(m_posBarcodeCount).arg(m_negBarcodeCount));
+
   if (m_showStepRepeat) {
+    LOG_STEP("Loading step and repeat");
     loadStepAndRepeat();
   }
+  
+  LOG_INFO("LayerFeatures constructor completed");
 }
 
 LayerFeatures::~LayerFeatures()
 {
+  LOG_STEP("LayerFeatures destructor");
   for (int i = 0; i < m_repeats.size(); ++i) {
     delete m_repeats[i];
   }
@@ -76,7 +112,10 @@ LayerFeatures::~LayerFeatures()
 
 void LayerFeatures::loadStepAndRepeat(void)
 {
+  LOG_STEP("Loading step and repeat data");
   QString path = ctx.loader->absPath(QString("steps/%1/stephdr").arg(m_step));
+  LOG_INFO(QString("Parsing step header: %1").arg(path));
+  
   StructuredTextDataStore* hds = CachedStructuredTextParser::parse(path);
 
   StructuredTextDataStore::BlockIterPair ip = hds->getBlocksByKey(
@@ -96,19 +135,27 @@ void LayerFeatures::loadStepAndRepeat(void)
     left_active = GET("LEFT_ACTIVE").toDouble();
     right_active = GET("RIGHT_ACTIVE").toDouble();
 
+    LOG_INFO(QString("Step parameters - Datum: (%1,%2), Origin: (%3,%4)")
+            .arg(m_x_datum).arg(m_y_datum).arg(m_x_origin).arg(m_y_origin));
+
     m_activeRect.setX(m_activeRect.x() + left_active);
     m_activeRect.setY(m_activeRect.y() + top_active);
     m_activeRect.setWidth(m_activeRect.width() - right_active);
     m_activeRect.setHeight(m_activeRect.height() - bottom_active);
   } catch(StructuredTextDataStore::InvalidKeyException&) {
+    LOG_WARNING("Some step header parameters not found");
   }
 
   if (ip.first == ip.second) {
     m_activeRect = QRectF();
+    LOG_INFO("No step repeat blocks found");
+  } else {
+    LOG_INFO("Processing step repeat blocks");
   }
 #undef GET
 
 #define GET(key) (QString::fromStdString(it->second->get(key)))
+  int repeatCount = 0;
   for (StructuredTextDataStore::BlockIter it = ip.first; it != ip.second; ++it)
   {
     QString name = GET("NAME").toLower();
@@ -121,68 +168,82 @@ void LayerFeatures::loadStepAndRepeat(void)
     qreal angle = GET("ANGLE").toDouble();
     bool mirror = (GET("MIRROR") == "YES");
 
+    LOG_INFO(QString("Step repeat: %1 at (%2,%3), delta (%4,%5), array %6x%7, angle %8, mirror %9")
+            .arg(name).arg(x).arg(y).arg(dx).arg(dy).arg(nx).arg(ny).arg(angle).arg(mirror));
+
     FeaturesDataStore::CountMapType countMap;
 
     for (int i = 0; i < nx; ++i) {
       for (int j = 0; j < ny; ++j) {
-        LayerFeatures* step = new LayerFeatures(name, m_path, true);
-        step->m_virtualParent = this;
-        step->setPos(QPointF(x + dx * i, -(y + dy * j)));
+        try {
+          LayerFeatures* step = new LayerFeatures(name, m_path, true);
+          step->m_virtualParent = this;
+          step->setPos(QPointF(x + dx * i, -(y + dy * j)));
 
-        QTransform trans;
-        if (mirror) {
-          trans.scale(-1, 1);
-        }
-        trans.rotate(angle);
-        trans.translate(-step->x_datum(), step->y_datum());
-        step->setTransform(trans);
-        m_repeats.append(step);
+          QTransform trans;
+          if (mirror) {
+            trans.scale(-1, 1);
+          }
+          trans.rotate(angle);
+          trans.translate(-step->x_datum(), step->y_datum());
+          step->setTransform(trans);
+          m_repeats.append(step);
+          repeatCount++;
 
-        countMap = step->m_posLineCount;
-        for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
-            it != countMap.end(); ++it) {
-          m_posLineCount[it.key()] += it.value();
-        }
-        countMap = step->m_negLineCount;
-        for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
-            it != countMap.end(); ++it) {
-          m_negLineCount[it.key()] += it.value();
-        }
-        countMap = step->m_posPadCount;
-        for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
-            it != countMap.end(); ++it) {
-          m_posPadCount[it.key()] += it.value();
-        }
-        countMap = step->m_negPadCount;
-        for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
-            it != countMap.end(); ++it) {
-          m_negPadCount[it.key()] += it.value();
-        }
-        countMap = step->m_posArcCount;
-        for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
-            it != countMap.end(); ++it) {
-          m_posArcCount[it.key()] += it.value();
-        }
-        countMap = step->m_negArcCount;
-        for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
-            it != countMap.end(); ++it) {
-          m_negArcCount[it.key()] += it.value();
-        }
+          // Aggregate count maps (existing code)
+          countMap = step->m_posLineCount;
+          for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
+              it != countMap.end(); ++it) {
+            m_posLineCount[it.key()] += it.value();
+          }
+          countMap = step->m_negLineCount;
+          for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
+              it != countMap.end(); ++it) {
+            m_negLineCount[it.key()] += it.value();
+          }
+          countMap = step->m_posPadCount;
+          for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
+              it != countMap.end(); ++it) {
+            m_posPadCount[it.key()] += it.value();
+          }
+          countMap = step->m_negPadCount;
+          for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
+              it != countMap.end(); ++it) {
+            m_negPadCount[it.key()] += it.value();
+          }
+          countMap = step->m_posArcCount;
+          for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
+              it != countMap.end(); ++it) {
+            m_posArcCount[it.key()] += it.value();
+          }
+          countMap = step->m_negArcCount;
+          for (FeaturesDataStore::CountMapType::iterator it = countMap.begin();
+              it != countMap.end(); ++it) {
+            m_negArcCount[it.key()] += it.value();
+          }
 
-        m_posSurfaceCount += step->m_posSurfaceCount;
-        m_negSurfaceCount += step->m_negSurfaceCount;
+          m_posSurfaceCount += step->m_posSurfaceCount;
+          m_negSurfaceCount += step->m_negSurfaceCount;
 
-        m_posTextCount += step->m_posTextCount;
-        m_negTextCount += step->m_negTextCount;
+          m_posTextCount += step->m_posTextCount;
+          m_negTextCount += step->m_negTextCount;
 
-        m_posBarcodeCount += step->m_posBarcodeCount;
-        m_negBarcodeCount += step->m_negBarcodeCount;
+          m_posBarcodeCount += step->m_posBarcodeCount;
+          m_negBarcodeCount += step->m_negBarcodeCount;
+        } catch (const std::exception& e) {
+          LOG_ERROR(QString("Exception creating step repeat [%1,%2]: %3").arg(i).arg(j).arg(e.what()));
+        } catch (...) {
+          LOG_ERROR(QString("Unknown exception creating step repeat [%1,%2]").arg(i).arg(j));
+        }
       }
     }
   }
 #undef GET
 
+  LOG_INFO(QString("Created %1 step repeat instances").arg(repeatCount));
+
   if (m_scene) {
+    LOG_STEP("Adding step repeats to scene");
     for (QList<LayerFeatures*>::iterator it = m_repeats.begin();
         it != m_repeats.end(); ++it) {
       (*it)->addToScene(m_scene);
@@ -190,30 +251,84 @@ void LayerFeatures::loadStepAndRepeat(void)
   }
 
   m_stepRepeatLoaded = true;
+  LOG_INFO("Step and repeat loading completed");
 }
 
 QRectF LayerFeatures::boundingRect() const
 {
-  return QRectF();
+  LOG_INFO(QString("LayerFeatures::boundingRect() called, symbols count: %1").arg(m_symbols.size()));
+  
+  if (m_symbols.isEmpty()) {
+    LOG_WARNING("LayerFeatures has no symbols, returning empty rect");
+    return QRectF();
+  }
+
+  QRectF bounds;
+  bool firstSymbol = true;
+  
+  for (int i = 0; i < m_symbols.size(); ++i) {
+    if (m_symbols[i]) {
+      QRectF symbolBounds = m_symbols[i]->boundingRect();
+      QPointF symbolPos = m_symbols[i]->pos();
+      
+      // Translate symbol bounds to its actual position
+      symbolBounds.translate(symbolPos);
+      
+      if (firstSymbol) {
+        bounds = symbolBounds;
+        firstSymbol = false;
+        LOG_INFO(QString("First symbol bounds: x=%1, y=%2, w=%3, h=%4")
+                .arg(symbolBounds.x()).arg(symbolBounds.y())
+                .arg(symbolBounds.width()).arg(symbolBounds.height()));
+      } else {
+        bounds = bounds.united(symbolBounds);
+      }
+    }
+  }
+  
+  // Include repeats
+  for (QList<LayerFeatures*>::const_iterator it = m_repeats.begin();
+      it != m_repeats.end(); ++it) {
+    QRectF repeatBounds = (*it)->boundingRect();
+    if (!repeatBounds.isEmpty()) {
+      bounds = bounds.united(repeatBounds);
+    }
+  }
+  
+  LOG_INFO(QString("LayerFeatures final bounds: x=%1, y=%2, w=%3, h=%4")
+          .arg(bounds.x()).arg(bounds.y())
+          .arg(bounds.width()).arg(bounds.height()));
+  
+  return bounds;
 }
 
 void LayerFeatures::addToScene(QGraphicsScene* scene)
 {
+  LOG_STEP(QString("Adding LayerFeatures to scene"), QString("Symbols: %1, Repeats: %2").arg(m_symbols.size()).arg(m_repeats.size()));
   m_scene = scene;
 
+  int addedSymbols = 0;
   for (int i = 0; i < m_symbols.size(); ++i) {
-    scene->addItem(m_symbols[i]);
+    if (m_symbols[i]) {
+      scene->addItem(m_symbols[i]);
+      addedSymbols++;
+    } else {
+      LOG_WARNING(QString("Null symbol at index %1").arg(i));
+    }
   }
+  LOG_INFO(QString("Added %1 symbols to scene").arg(addedSymbols));
 
   for (QList<LayerFeatures*>::iterator it = m_repeats.begin();
       it != m_repeats.end(); ++it) {
     (*it)->addToScene(scene);
     (*it)->setVisible(m_showStepRepeat);
   }
+  LOG_INFO(QString("Added %1 step repeats to scene").arg(m_repeats.size()));
 }
 
 void LayerFeatures::setTransform(const QTransform& matrix, bool combine)
 {
+  LOG_INFO("Setting transform on LayerFeatures");
   for (int i = 0; i < m_symbols.size(); ++i) {
     Symbol* symbol = m_symbols[i];
     QTransform trans;
@@ -244,6 +359,7 @@ void LayerFeatures::setPos(QPointF pos)
 
 void LayerFeatures::setPos(qreal x, qreal y)
 {
+  LOG_INFO(QString("Setting LayerFeatures position to (%1, %2)").arg(x).arg(y));
   QTransform trans = QTransform::fromTranslate(x, y);
   for (int i = 0; i < m_symbols.size(); ++i) {
     m_symbols[i]->setTransform(m_symbols[i]->transform() * trans, false);
@@ -260,6 +376,7 @@ void LayerFeatures::setPos(qreal x, qreal y)
 
 void LayerFeatures::setVisible(bool status)
 {
+  LOG_INFO(QString("Setting LayerFeatures visibility to %1").arg(status ? "true" : "false"));
   for (int i = 0; i < m_symbols.size(); ++i) {
     m_symbols[i]->setVisible(status);
   }
@@ -272,6 +389,7 @@ void LayerFeatures::setVisible(bool status)
 
 void LayerFeatures::setShowStepRepeat(bool status)
 {
+  LOG_STEP(QString("Setting show step repeat to %1").arg(status ? "true" : "false"));
   m_showStepRepeat = status;
 
   if (m_reportModel) {
@@ -284,8 +402,11 @@ void LayerFeatures::setShowStepRepeat(bool status)
 
     QList<QGraphicsItem*> items = m_scene->items();
     for (int i = 0; i < items.size(); ++i) {
-      dynamic_cast<Symbol*>(items[i])->setPen(m_pen);
-      dynamic_cast<Symbol*>(items[i])->setBrush(m_brush);
+      Symbol* symbol = dynamic_cast<Symbol*>(items[i]);
+      if (symbol) {
+        symbol->setPen(m_pen);
+        symbol->setBrush(m_brush);
+      }
     }
   }
 
@@ -301,12 +422,14 @@ QStandardItemModel* LayerFeatures::reportModel(void)
     return m_reportModel;
   }
 
+  LOG_STEP("Creating report model");
   m_reportModel = new QStandardItemModel;
   m_reportModel->setColumnCount(2);
   m_reportModel->setHeaderData(0, Qt::Horizontal, "name");
   m_reportModel->setHeaderData(1, Qt::Horizontal, "count");
 
   if (!m_ds) {
+    LOG_WARNING("No data store available for report model");
     return m_reportModel;
   }
 
@@ -395,5 +518,6 @@ QStandardItemModel* LayerFeatures::reportModel(void)
   APPEND_ROW(node, "NEG", QString::number(m_ds->negBarcodeCount()));
   root->child(n_nodes++, 1)->setText(QString::number(pos + neg));
 
+  LOG_INFO("Report model created successfully");
   return m_reportModel;
 }

@@ -1,0 +1,567 @@
+Date : 27 Nov 2020
+Time : 08:31
+Job  : 52505023-200123-hs
+
+
+----------------------------------------------------------------------
+(*)  1. Path : (File) E:/haiseo/T11/27-11/11/52502032bot_p
+----------------------------------------------------------------------
+        File size         : 5916852 Bytes
+        Format            : Gerber274x
+        Step  name        : pan.52505023
+        Layer name        : 52502032bot_p
+
+        Start translation : 08:31:45
+        End   translation : 08:31:47
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 4.5
+        Separator char    : *
+
+        Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style" 
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r500 my (r19.685 mil), Count = 1157
+         2.D011, Symbol = r1000 my (r39.37 mil), Count = 597
+         3.D012, Symbol = s1000 my (s39.37 mil), Count = 8
+         4.D013, Symbol = r2000 my (r78.74 mil), Count = 34
+         5.D014, Symbol = r300 my (r11.811 mil), Count = 1911
+         6.D015, Symbol = r715 my (r28.15 mil), Count = 16
+         7.D016, Symbol = s500 my (s19.685 mil), Count = 1108
+         8.D017, Symbol = s200 my (s7.874 mil), Count = 2320
+         9.D018, Symbol = s860 my (s33.858 mil), Count = 4
+        10.D019, Symbol = r2500 my (r98.425 mil), Count = 576
+        11.D020, Symbol = r800 my (r31.496 mil), Count = 27124
+        12.D021, Symbol = r1100 my (r43.307 mil), Count = 864
+        13.D022, Symbol = r1750 my (r68.898 mil), Count = 624
+        14.D023, Symbol = r2050 my (r80.709 mil), Count = 360
+        15.D024, Symbol = r130 my (r5.118 mil), Count = 102516
+        16.D025, Symbol = r350 my (r13.78 mil), Count = 288
+        17.D026, Symbol = r400 my (r15.748 mil), Count = 6892
+        18.D027, Symbol = r600 my (r23.622 mil), Count = 1416
+        19.D028, Symbol = r650 my (r25.591 mil), Count = 456
+        20.D029, Symbol = r750 my (r29.528 mil), Count = 24
+        21.D030, Symbol = r850 my (r33.465 mil), Count = 96
+        22.D031, Symbol = r900 my (r35.433 mil), Count = 288
+        23.D032, Symbol = r1300 my (r51.181 mil), Count = 48
+        24.D033, Symbol = r1500 my (r59.055 mil), Count = 192
+        25.D034, Symbol = s825 my (s32.48 mil), Count = 14880
+        26.D035, Symbol = r100 my (r3.937 mil), Count = 26736
+        27.D036, Symbol = s700 my (s27.559 mil), Count = 1920
+        28.D037, Symbol = s1200 my (s47.244 mil), Count = 336
+        29.D038, Symbol = s2150 my (s84.646 mil), Count = 96
+        30.D039, Symbol = s300 my (s11.811 mil), Count = 672
+        31.D040, Symbol = s250 my (s9.843 mil), Count = 240
+        32.D041, Symbol = s900 my (s35.433 mil), Count = 1728
+        33.D042, Symbol = s550 my (s21.654 mil), Count = 1344
+        34.D043, Symbol = s350 my (s13.78 mil), Count = 1344
+        35.D044, Symbol = s1950 my (s76.772 mil), Count = 48
+        36.D045, Symbol = s2050 my (s80.709 mil), Count = 96
+        37.D046, Symbol = s6000 my (s236.22 mil), Count = 96
+        38.D047, Symbol = s750 my (s29.528 mil), Count = 96
+        39.D048, Symbol = s1900 my (s74.803 mil), Count = 288
+        40.D049, Symbol = s800 my (s31.496 mil), Count = 144
+        41.D050, Symbol = s5760 my (s226.772 mil), Count = 6
+        42.D051, Symbol = r250 my (r9.843 mil), Count = 12
+        43.D052, Symbol = r875 my (r34.449 mil), Count = 24672
+        44.D053, Symbol = r870.712 my (r34.28 mil), Count = 96
+        45.D054, Symbol = r865 my (r34.055 mil), Count = 1152
+        46.D055, Symbol = r864.107 my (r34.02 mil), Count = 12
+        47.D056, Symbol = r863.802 my (r34.008 mil), Count = 48
+        48.D057, Symbol = r863.5 my (r33.996 mil), Count = 12
+        49.D058, Symbol = r866.902 my (r34.13 mil), Count = 24
+        50.D059, Symbol = r865.81 my (r34.087 mil), Count = 12
+        51.D060, Symbol = r866.395 my (r34.11 mil), Count = 12
+        52.D061, Symbol = r1175 my (r46.26 mil), Count = 864
+        53.D062, Symbol = r1825 my (r71.85 mil), Count = 576
+        54.D063, Symbol = r1809.902 my (r71.256 mil), Count = 12
+        55.D064, Symbol = r1819.91 my (r71.65 mil), Count = 12
+        56.D065, Symbol = r1810 my (r71.26 mil), Count = 12
+        57.D066, Symbol = r1820 my (r71.654 mil), Count = 12
+        58.D067, Symbol = r2125 my (r83.661 mil), Count = 240
+        59.D068, Symbol = r175 my (r6.89 mil), Count = 22800
+        60.D069, Symbol = r160 my (r6.299 mil), Count = 3936
+        61.D070, Symbol = r6000 my (r236.22 mil), Count = 2
+        62.D071, Symbol = s48000 my (s1889.764 mil), Count = 2
+        63.D072, Symbol = r304.8 my (r12 mil), Count = 134
+        64.D073, Symbol = s4000 my (s157.48 mil), Count = 20
+        
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  2. Path : (File) E:/haiseo/T11/27-11/11/52502032bot_r
+----------------------------------------------------------------------
+        File size         : 1632038 Bytes
+        Format            : Gerber274x
+        Step  name        : pan.52505023
+        Layer name        : 52502032bot_r
+
+        Start translation : 08:31:47
+        End   translation : 08:31:47
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 4.5
+        Separator char    : *
+
+        Warning! Interpreted zero-degree arc as 360 degree. See parameter "Arc as full circle" .
+        Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style" 
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = s1000 my (s39.37 mil), Count = 8
+         2.D011, Symbol = r1900 my (r74.803 mil), Count = 244
+         3.D012, Symbol = s600 my (s23.622 mil), Count = 4
+         4.D013, Symbol = s760 my (s29.921 mil), Count = 4
+         5.D014, Symbol = r1000 my (r39.37 mil), Count = 18
+         6.D015, Symbol = r700 my (r27.559 mil), Count = 8
+         7.D016, Symbol = r500 my (r19.685 mil), Count = 8
+         8.D017, Symbol = r150 my (r5.906 mil), Count = 8
+         9.D018, Symbol = s300 my (s11.811 mil), Count = 1168
+        10.D019, Symbol = r300 my (r11.811 mil), Count = 24051
+        11.D020, Symbol = r950 my (r37.402 mil), Count = 2064
+        12.D021, Symbol = r1250 my (r49.213 mil), Count = 864
+        13.D022, Symbol = r1600 my (r62.992 mil), Count = 624
+        14.D023, Symbol = r2250 my (r88.583 mil), Count = 146
+        15.D024, Symbol = r2750 my (r108.268 mil), Count = 48
+        16.D025, Symbol = r3800 my (r149.606 mil), Count = 24
+        17.D026, Symbol = r4000 my (r157.48 mil), Count = 120
+        18.D027, Symbol = r4500 my (r177.165 mil), Count = 48
+        19.D028, Symbol = r600 my (r23.622 mil), Count = 450
+        20.D029, Symbol = s1205 my (s47.441 mil), Count = 336
+        21.D030, Symbol = r100 my (r3.937 mil), Count = 28224
+        22.D031, Symbol = s975 my (s38.386 mil), Count = 7440
+        23.D032, Symbol = s850 my (s33.465 mil), Count = 960
+        24.D033, Symbol = s1350 my (s53.15 mil), Count = 168
+        25.D034, Symbol = s2300 my (s90.551 mil), Count = 48
+        26.D035, Symbol = s450 my (s17.717 mil), Count = 336
+        27.D036, Symbol = s1150 my (s45.276 mil), Count = 48
+        28.D037, Symbol = s400 my (s15.748 mil), Count = 120
+        29.D038, Symbol = s1050 my (s41.339 mil), Count = 864
+        30.D039, Symbol = s700 my (s27.559 mil), Count = 672
+        31.D040, Symbol = s500 my (s19.685 mil), Count = 672
+        32.D041, Symbol = s2400 my (s94.488 mil), Count = 48
+        33.D042, Symbol = s2100 my (s82.677 mil), Count = 24
+        34.D043, Symbol = s650 my (s25.591 mil), Count = 552
+        35.D044, Symbol = s2200 my (s86.614 mil), Count = 48
+        36.D045, Symbol = s3775 my (s148.622 mil), Count = 96
+        37.D046, Symbol = s2925 my (s115.157 mil), Count = 48
+        38.D047, Symbol = s900 my (s35.433 mil), Count = 48
+        39.D048, Symbol = s2050 my (s80.709 mil), Count = 144
+        40.D049, Symbol = s3100 my (s122.047 mil), Count = 48
+        41.D050, Symbol = s1225 my (s48.228 mil), Count = 48
+        42.D051, Symbol = s2225 my (s87.598 mil), Count = 24
+        43.D052, Symbol = s1650 my (s64.961 mil), Count = 96
+        44.D053, Symbol = s950 my (s37.402 mil), Count = 72
+        45.D054, Symbol = r3500 my (r137.795 mil), Count = 2
+        46.D055, Symbol = s3000 my (s118.11 mil), Count = 4
+        47.D056, Symbol = r4199 my (r165.315 mil), Count = 6
+        48.D057, Symbol = r4699 my (r185 mil), Count = 3
+        49.D058, Symbol = r2200 my (r86.614 mil), Count = 5
+        50.D059, Symbol = r400 my (r15.748 mil), Count = 16
+        51.D060, Symbol = s10000 my (s393.701 mil), Count = 4
+        
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  3. Path : (File) E:/haiseo/T11/27-11/11/52502032top_p
+----------------------------------------------------------------------
+        File size         : 5284215 Bytes
+        Format            : Gerber274x
+        Step  name        : pan.52505023
+        Layer name        : 52502032top_p
+
+        Start translation : 08:31:47
+        End   translation : 08:31:49
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 4.5
+        Separator char    : *
+
+        Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style" 
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r500 my (r19.685 mil), Count = 437
+         2.D011, Symbol = r1000 my (r39.37 mil), Count = 333
+         3.D012, Symbol = s1000 my (s39.37 mil), Count = 8
+         4.D013, Symbol = r2000 my (r78.74 mil), Count = 10
+         5.D014, Symbol = r300 my (r11.811 mil), Count = 6031
+         6.D015, Symbol = r715 my (r28.15 mil), Count = 16
+         7.D016, Symbol = s500 my (s19.685 mil), Count = 244
+         8.D017, Symbol = s200 my (s7.874 mil), Count = 4816
+         9.D018, Symbol = s860 my (s33.858 mil), Count = 4
+        10.D019, Symbol = r2500 my (r98.425 mil), Count = 576
+        11.D020, Symbol = r800 my (r31.496 mil), Count = 25972
+        12.D021, Symbol = r1100 my (r43.307 mil), Count = 24
+        13.D022, Symbol = r1500 my (r59.055 mil), Count = 384
+        14.D023, Symbol = r1750 my (r68.898 mil), Count = 624
+        15.D024, Symbol = r1900 my (r74.803 mil), Count = 240
+        16.D025, Symbol = r130 my (r5.118 mil), Count = 92580
+        17.D026, Symbol = r200 my (r7.874 mil), Count = 24
+        18.D027, Symbol = r350 my (r13.78 mil), Count = 144
+        19.D028, Symbol = r400 my (r15.748 mil), Count = 4889
+        20.D029, Symbol = r600 my (r23.622 mil), Count = 960
+        21.D030, Symbol = r650 my (r25.591 mil), Count = 144
+        22.D031, Symbol = r700 my (r27.559 mil), Count = 96
+        23.D032, Symbol = r850 my (r33.465 mil), Count = 96
+        24.D033, Symbol = r900 my (r35.433 mil), Count = 456
+        25.D034, Symbol = r950 my (r37.402 mil), Count = 24
+        26.D035, Symbol = s825 my (s32.48 mil), Count = 12096
+        27.D036, Symbol = r100 my (r3.937 mil), Count = 20928
+        28.D037, Symbol = s900 my (s35.433 mil), Count = 1392
+        29.D038, Symbol = s700 my (s27.559 mil), Count = 912
+        30.D039, Symbol = s1600 my (s62.992 mil), Count = 192
+        31.D040, Symbol = s250 my (s9.843 mil), Count = 240
+        32.D041, Symbol = s300 my (s11.811 mil), Count = 672
+        33.D042, Symbol = s550 my (s21.654 mil), Count = 384
+        34.D043, Symbol = r875 my (r34.449 mil), Count = 24624
+        35.D044, Symbol = r865 my (r34.055 mil), Count = 768
+        36.D045, Symbol = r870 my (r34.252 mil), Count = 48
+        37.D046, Symbol = r860 my (r33.858 mil), Count = 96
+        38.D047, Symbol = r1175 my (r46.26 mil), Count = 24
+        39.D048, Symbol = r1575 my (r62.008 mil), Count = 384
+        40.D049, Symbol = r1825 my (r71.85 mil), Count = 624
+        41.D050, Symbol = r1975 my (r77.756 mil), Count = 240
+        42.D051, Symbol = r175 my (r6.89 mil), Count = 14592
+        43.D052, Symbol = r160 my (r6.299 mil), Count = 6336
+        44.D053, Symbol = r6000 my (r236.22 mil), Count = 2
+        45.D054, Symbol = s48000 my (s1889.764 mil), Count = 2
+        46.D055, Symbol = r304.8 my (r12 mil), Count = 134
+        47.D056, Symbol = s4000 my (s157.48 mil), Count = 19
+        
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  4. Path : (File) E:/haiseo/T11/27-11/11/52502032top_r
+----------------------------------------------------------------------
+        File size         : 1795686 Bytes
+        Format            : Gerber274x
+        Step  name        : pan.52505023
+        Layer name        : 52502032top_r
+
+        Start translation : 08:31:49
+        End   translation : 08:31:49
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 4.5
+        Separator char    : *
+
+        Warning! Interpreted zero-degree arc as 360 degree. See parameter "Arc as full circle" .
+        Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style" 
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = s1000 my (s39.37 mil), Count = 8
+         2.D011, Symbol = r1900 my (r74.803 mil), Count = 4
+         3.D012, Symbol = s600 my (s23.622 mil), Count = 4
+         4.D013, Symbol = s760 my (s29.921 mil), Count = 4
+         5.D014, Symbol = r1000 my (r39.37 mil), Count = 18
+         6.D015, Symbol = r700 my (r27.559 mil), Count = 8
+         7.D016, Symbol = r500 my (r19.685 mil), Count = 8
+         8.D017, Symbol = r150 my (r5.906 mil), Count = 8
+         9.D018, Symbol = s300 my (s11.811 mil), Count = 2416
+        10.D019, Symbol = r300 my (r11.811 mil), Count = 24051
+        11.D020, Symbol = r950 my (r37.402 mil), Count = 1608
+        12.D021, Symbol = r1250 my (r49.213 mil), Count = 24
+        13.D022, Symbol = r1650 my (r64.961 mil), Count = 384
+        14.D023, Symbol = r2250 my (r88.583 mil), Count = 146
+        15.D024, Symbol = r2750 my (r108.268 mil), Count = 48
+        16.D025, Symbol = r3800 my (r149.606 mil), Count = 24
+        17.D026, Symbol = r4000 my (r157.48 mil), Count = 120
+        18.D027, Symbol = r4500 my (r177.165 mil), Count = 48
+        19.D028, Symbol = r600 my (r23.622 mil), Count = 450
+        20.D029, Symbol = s975 my (s38.386 mil), Count = 6048
+        21.D030, Symbol = r100 my (r3.937 mil), Count = 20928
+        22.D031, Symbol = s1050 my (s41.339 mil), Count = 696
+        23.D032, Symbol = s850 my (s33.465 mil), Count = 408
+        24.D033, Symbol = s1175 my (s46.26 mil), Count = 96
+        25.D034, Symbol = s2400 my (s94.488 mil), Count = 48
+        26.D035, Symbol = s400 my (s15.748 mil), Count = 120
+        27.D036, Symbol = s650 my (s25.591 mil), Count = 120
+        28.D037, Symbol = s450 my (s17.717 mil), Count = 336
+        29.D038, Symbol = s700 my (s27.559 mil), Count = 192
+        30.D039, Symbol = r3500 my (r137.795 mil), Count = 2
+        31.D040, Symbol = s3000 my (s118.11 mil), Count = 4
+        32.D041, Symbol = r4199 my (r165.315 mil), Count = 6
+        33.D042, Symbol = r4699 my (r185 mil), Count = 3
+        34.D043, Symbol = r2200 my (r86.614 mil), Count = 5
+        35.D044, Symbol = r400 my (r15.748 mil), Count = 29
+        36.D045, Symbol = s10000 my (s393.701 mil), Count = 4
+        
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+
+----------------------------------------------------------------------
+
+
+        ****************************
+        *Grand Total Dcodes Summary*
+        ****************************
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r500 my (r19.685 mil), Count = 1594
+         2.D010, Symbol = s1000 my (s39.37 mil), Count = 16
+         3.D011, Symbol = r1900 my (r74.803 mil), Count = 248
+         4.D011, Symbol = r1000 my (r39.37 mil), Count = 930
+         5.D012, Symbol = s600 my (s23.622 mil), Count = 8
+         6.D012, Symbol = s1000 my (s39.37 mil), Count = 16
+         7.D013, Symbol = s760 my (s29.921 mil), Count = 8
+         8.D013, Symbol = r2000 my (r78.74 mil), Count = 44
+         9.D014, Symbol = r300 my (r11.811 mil), Count = 7942
+        10.D014, Symbol = r1000 my (r39.37 mil), Count = 36
+        11.D015, Symbol = r715 my (r28.15 mil), Count = 32
+        12.D015, Symbol = r700 my (r27.559 mil), Count = 16
+        13.D016, Symbol = s500 my (s19.685 mil), Count = 1352
+        14.D016, Symbol = r500 my (r19.685 mil), Count = 16
+        15.D017, Symbol = s200 my (s7.874 mil), Count = 7136
+        16.D017, Symbol = r150 my (r5.906 mil), Count = 16
+        17.D018, Symbol = s300 my (s11.811 mil), Count = 3584
+        18.D018, Symbol = s860 my (s33.858 mil), Count = 8
+        19.D019, Symbol = r300 my (r11.811 mil), Count = 48102
+        20.D019, Symbol = r2500 my (r98.425 mil), Count = 1152
+        21.D020, Symbol = r950 my (r37.402 mil), Count = 3672
+        22.D020, Symbol = r800 my (r31.496 mil), Count = 53096
+        23.D021, Symbol = r1100 my (r43.307 mil), Count = 888
+        24.D021, Symbol = r1250 my (r49.213 mil), Count = 888
+        25.D022, Symbol = r1750 my (r68.898 mil), Count = 624
+        26.D022, Symbol = r1500 my (r59.055 mil), Count = 384
+        27.D022, Symbol = r1600 my (r62.992 mil), Count = 624
+        28.D022, Symbol = r1650 my (r64.961 mil), Count = 384
+        29.D023, Symbol = r2250 my (r88.583 mil), Count = 292
+        30.D023, Symbol = r1750 my (r68.898 mil), Count = 624
+        31.D023, Symbol = r2050 my (r80.709 mil), Count = 360
+        32.D024, Symbol = r1900 my (r74.803 mil), Count = 240
+        33.D024, Symbol = r130 my (r5.118 mil), Count = 102516
+        34.D024, Symbol = r2750 my (r108.268 mil), Count = 96
+        35.D025, Symbol = r3800 my (r149.606 mil), Count = 48
+        36.D025, Symbol = r350 my (r13.78 mil), Count = 288
+        37.D025, Symbol = r130 my (r5.118 mil), Count = 92580
+        38.D026, Symbol = r4000 my (r157.48 mil), Count = 240
+        39.D026, Symbol = r400 my (r15.748 mil), Count = 6892
+        40.D026, Symbol = r200 my (r7.874 mil), Count = 24
+        41.D027, Symbol = r600 my (r23.622 mil), Count = 1416
+        42.D027, Symbol = r350 my (r13.78 mil), Count = 144
+        43.D027, Symbol = r4500 my (r177.165 mil), Count = 96
+        44.D028, Symbol = r400 my (r15.748 mil), Count = 4889
+        45.D028, Symbol = r650 my (r25.591 mil), Count = 456
+        46.D028, Symbol = r600 my (r23.622 mil), Count = 900
+        47.D029, Symbol = r750 my (r29.528 mil), Count = 24
+        48.D029, Symbol = s1205 my (s47.441 mil), Count = 336
+        49.D029, Symbol = r600 my (r23.622 mil), Count = 960
+        50.D029, Symbol = s975 my (s38.386 mil), Count = 6048
+        51.D030, Symbol = r100 my (r3.937 mil), Count = 49152
+        52.D030, Symbol = r650 my (r25.591 mil), Count = 144
+        53.D030, Symbol = r850 my (r33.465 mil), Count = 96
+        54.D031, Symbol = r900 my (r35.433 mil), Count = 288
+        55.D031, Symbol = s1050 my (s41.339 mil), Count = 696
+        56.D031, Symbol = r700 my (r27.559 mil), Count = 96
+        57.D031, Symbol = s975 my (s38.386 mil), Count = 7440
+        58.D032, Symbol = r1300 my (r51.181 mil), Count = 48
+        59.D032, Symbol = s850 my (s33.465 mil), Count = 1368
+        60.D032, Symbol = r850 my (r33.465 mil), Count = 96
+        61.D033, Symbol = s1350 my (s53.15 mil), Count = 168
+        62.D033, Symbol = r900 my (r35.433 mil), Count = 456
+        63.D033, Symbol = r1500 my (r59.055 mil), Count = 192
+        64.D033, Symbol = s1175 my (s46.26 mil), Count = 96
+        65.D034, Symbol = r950 my (r37.402 mil), Count = 24
+        66.D034, Symbol = s2300 my (s90.551 mil), Count = 48
+        67.D034, Symbol = s2400 my (s94.488 mil), Count = 48
+        68.D034, Symbol = s825 my (s32.48 mil), Count = 14880
+        69.D035, Symbol = s400 my (s15.748 mil), Count = 120
+        70.D035, Symbol = r100 my (r3.937 mil), Count = 26736
+        71.D035, Symbol = s825 my (s32.48 mil), Count = 12096
+        72.D035, Symbol = s450 my (s17.717 mil), Count = 336
+        73.D036, Symbol = s700 my (s27.559 mil), Count = 1920
+        74.D036, Symbol = r100 my (r3.937 mil), Count = 20928
+        75.D036, Symbol = s650 my (s25.591 mil), Count = 120
+        76.D036, Symbol = s1150 my (s45.276 mil), Count = 48
+        77.D037, Symbol = s450 my (s17.717 mil), Count = 336
+        78.D037, Symbol = s900 my (s35.433 mil), Count = 1392
+        79.D037, Symbol = s400 my (s15.748 mil), Count = 120
+        80.D037, Symbol = s1200 my (s47.244 mil), Count = 336
+        81.D038, Symbol = s1050 my (s41.339 mil), Count = 864
+        82.D038, Symbol = s700 my (s27.559 mil), Count = 1104
+        83.D038, Symbol = s2150 my (s84.646 mil), Count = 96
+        84.D039, Symbol = s1600 my (s62.992 mil), Count = 192
+        85.D039, Symbol = s300 my (s11.811 mil), Count = 672
+        86.D039, Symbol = r3500 my (r137.795 mil), Count = 2
+        87.D039, Symbol = s700 my (s27.559 mil), Count = 672
+        88.D040, Symbol = s3000 my (s118.11 mil), Count = 4
+        89.D040, Symbol = s500 my (s19.685 mil), Count = 672
+        90.D040, Symbol = s250 my (s9.843 mil), Count = 480
+        91.D041, Symbol = s300 my (s11.811 mil), Count = 672
+        92.D041, Symbol = r4199 my (r165.315 mil), Count = 6
+        93.D041, Symbol = s2400 my (s94.488 mil), Count = 48
+        94.D041, Symbol = s900 my (s35.433 mil), Count = 1728
+        95.D042, Symbol = s550 my (s21.654 mil), Count = 1728
+        96.D042, Symbol = r4699 my (r185 mil), Count = 3
+        97.D042, Symbol = s2100 my (s82.677 mil), Count = 24
+        98.D043, Symbol = r2200 my (r86.614 mil), Count = 5
+        99.D043, Symbol = s350 my (s13.78 mil), Count = 1344
+        100.D043, Symbol = r875 my (r34.449 mil), Count = 24624
+        101.D043, Symbol = s650 my (s25.591 mil), Count = 552
+        102.D044, Symbol = r400 my (r15.748 mil), Count = 29
+        103.D044, Symbol = r865 my (r34.055 mil), Count = 768
+        104.D044, Symbol = s1950 my (s76.772 mil), Count = 48
+        105.D044, Symbol = s2200 my (s86.614 mil), Count = 48
+        106.D045, Symbol = s10000 my (s393.701 mil), Count = 4
+        107.D045, Symbol = s3775 my (s148.622 mil), Count = 96
+        108.D045, Symbol = r870 my (r34.252 mil), Count = 48
+        109.D045, Symbol = s2050 my (s80.709 mil), Count = 96
+        110.D046, Symbol = s6000 my (s236.22 mil), Count = 96
+        111.D046, Symbol = r860 my (r33.858 mil), Count = 96
+        112.D046, Symbol = s2925 my (s115.157 mil), Count = 48
+        113.D047, Symbol = s750 my (s29.528 mil), Count = 96
+        114.D047, Symbol = r1175 my (r46.26 mil), Count = 24
+        115.D047, Symbol = s900 my (s35.433 mil), Count = 48
+        116.D048, Symbol = r1575 my (r62.008 mil), Count = 384
+        117.D048, Symbol = s1900 my (s74.803 mil), Count = 288
+        118.D048, Symbol = s2050 my (s80.709 mil), Count = 144
+        119.D049, Symbol = s3100 my (s122.047 mil), Count = 48
+        120.D049, Symbol = s800 my (s31.496 mil), Count = 144
+        121.D049, Symbol = r1825 my (r71.85 mil), Count = 624
+        122.D050, Symbol = s1225 my (s48.228 mil), Count = 48
+        123.D050, Symbol = r1975 my (r77.756 mil), Count = 240
+        124.D050, Symbol = s5760 my (s226.772 mil), Count = 6
+        125.D051, Symbol = r250 my (r9.843 mil), Count = 12
+        126.D051, Symbol = s2225 my (s87.598 mil), Count = 24
+        127.D051, Symbol = r175 my (r6.89 mil), Count = 14592
+        128.D052, Symbol = r160 my (r6.299 mil), Count = 6336
+        129.D052, Symbol = s1650 my (s64.961 mil), Count = 96
+        130.D052, Symbol = r875 my (r34.449 mil), Count = 24672
+        131.D053, Symbol = r6000 my (r236.22 mil), Count = 2
+        132.D053, Symbol = s950 my (s37.402 mil), Count = 72
+        133.D053, Symbol = r870.712 my (r34.28 mil), Count = 96
+        134.D054, Symbol = s48000 my (s1889.764 mil), Count = 2
+        135.D054, Symbol = r865 my (r34.055 mil), Count = 1152
+        136.D054, Symbol = r3500 my (r137.795 mil), Count = 2
+        137.D055, Symbol = r864.107 my (r34.02 mil), Count = 12
+        138.D055, Symbol = r304.8 my (r12 mil), Count = 134
+        139.D055, Symbol = s3000 my (s118.11 mil), Count = 4
+        140.D056, Symbol = r863.802 my (r34.008 mil), Count = 48
+        141.D056, Symbol = s4000 my (s157.48 mil), Count = 19
+        142.D056, Symbol = r4199 my (r165.315 mil), Count = 6
+        143.D057, Symbol = r863.5 my (r33.996 mil), Count = 12
+        144.D057, Symbol = r4699 my (r185 mil), Count = 3
+        145.D058, Symbol = r866.902 my (r34.13 mil), Count = 24
+        146.D058, Symbol = r2200 my (r86.614 mil), Count = 5
+        147.D059, Symbol = r865.81 my (r34.087 mil), Count = 12
+        148.D059, Symbol = r400 my (r15.748 mil), Count = 16
+        149.D060, Symbol = s10000 my (s393.701 mil), Count = 4
+        150.D060, Symbol = r866.395 my (r34.11 mil), Count = 12
+        151.D061, Symbol = r1175 my (r46.26 mil), Count = 864
+        152.D062, Symbol = r1825 my (r71.85 mil), Count = 576
+        153.D063, Symbol = r1809.902 my (r71.256 mil), Count = 12
+        154.D064, Symbol = r1819.91 my (r71.65 mil), Count = 12
+        155.D065, Symbol = r1810 my (r71.26 mil), Count = 12
+        156.D066, Symbol = r1820 my (r71.654 mil), Count = 12
+        157.D067, Symbol = r2125 my (r83.661 mil), Count = 240
+        158.D068, Symbol = r175 my (r6.89 mil), Count = 22800
+        159.D069, Symbol = r160 my (r6.299 mil), Count = 3936
+        160.D070, Symbol = r6000 my (r236.22 mil), Count = 2
+        161.D071, Symbol = s48000 my (s1889.764 mil), Count = 2
+        162.D072, Symbol = r304.8 my (r12 mil), Count = 134
+        163.D073, Symbol = s4000 my (s157.48 mil), Count = 20
+        

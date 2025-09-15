@@ -27,8 +27,8 @@
 #include <QString>
 #include <QStringList>
 
-#ifdef Q_WS_WIN
-# define GZIP_CMD "./gzip"
+#if defined(Q_WS_WIN) || defined(Q_OS_WIN)
+# define GZIP_CMD "7z"  // Use 7-zip as primary tool on Windows
 #else
 # define GZIP_CMD "gzip"
 #endif
@@ -43,6 +43,8 @@ public:
   QString featuresPath(QString base);
 
 private:
+  int executeGzipDecompression(QString filePath);
+  
   QDir m_dir;
   QString m_fileName;
 };

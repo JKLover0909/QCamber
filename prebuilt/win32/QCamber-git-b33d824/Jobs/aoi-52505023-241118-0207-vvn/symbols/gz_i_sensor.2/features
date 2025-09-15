@@ -1,0 +1,13 @@
+#
+#Feature symbol names
+#
+$0 r194.882
+$1 s275.591
+$2 donut_r139.764x80.709
+
+#
+#Layer features
+#
+P 0 0 1 P 0 0
+P 0 0 0 N 0 0
+P 0 0 2 P 0 0

@@ -1,0 +1,25 @@
+#
+#                      Genesis Dcodes Wheel
+#                    ========================
+#
+
+dcode10 r3.937                           0 no_mirror
+dcode11 r5.118                           0 no_mirror
+dcode12 r7.874                           0 no_mirror
+dcode13 r9.843                           0 no_mirror
+dcode14 r11.811                          0 no_mirror
+dcode15 r13.78                           0 no_mirror
+dcode16 r15.748                          0 no_mirror
+dcode17 r19.685                          0 no_mirror
+dcode18 r23.622                          0 no_mirror
+dcode19 r25.591                          0 no_mirror
+dcode20 r27.559                          0 no_mirror
+dcode21 r31.496                          0 no_mirror
+dcode22 r33.465                          0 no_mirror
+dcode23 r35.433                          0 no_mirror
+dcode24 r37.402                          0 no_mirror
+dcode25 r39.37                           0 no_mirror
+dcode26 r43.307                          0 no_mirror
+dcode27 r59.055                          0 no_mirror
+dcode28 r68.898                          0 no_mirror
+dcode29 r74.803                          0 no_mirror

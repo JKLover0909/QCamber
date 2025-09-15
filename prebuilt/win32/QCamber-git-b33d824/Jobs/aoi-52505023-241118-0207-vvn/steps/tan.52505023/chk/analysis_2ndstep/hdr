@@ -1,0 +1,7 @@
+SAVE_APP = InCAM
+ACTIONS_RUN_MODE = selected
+AREA_MODE = global
+MASK_LAYER = None
+MAKE_USAGE = include
+STOP_ON_ERROR = false
+SAVE_RESULTS = true

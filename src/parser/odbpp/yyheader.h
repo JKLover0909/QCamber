@@ -25,10 +25,22 @@
 
 #define YYSTYPE char*
 
+ /* Windows compatibility for flex generated code */
+#if defined(_WIN32) || defined(_WIN64)
+#define YY_NO_UNISTD_H 1
+#include <io.h>
+#ifndef isatty
+#define isatty _isatty
+#endif
+#ifndef fileno
+#define fileno _fileno
+#endif
+#endif
+
 #include "structuredtextparser.h"
 
 struct yycontext {
-  StructuredTextDataStore* stds;
+	StructuredTextDataStore* stds;
 };
 
 #endif /* __YY_HEADER_H__ */

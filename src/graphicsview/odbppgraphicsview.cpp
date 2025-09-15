@@ -24,6 +24,7 @@
 
 #include "context.h"
 #include "graphicslayer.h"
+#include "logger.h"
 #include "symbolfactory.h"
 
 #include <QScrollBar>
@@ -173,10 +174,25 @@ void ODBPPGraphicsView::initialZoom(void)
 void ODBPPGraphicsView::zoomToAll(void)
 {
   QRectF bounding(m_profile->boundingRect());
+  LOG_INFO(QString("Profile bounding rect: x=%1, y=%2, w=%3, h=%4")
+          .arg(bounding.x()).arg(bounding.y())
+          .arg(bounding.width()).arg(bounding.height()));
+  
   QList<GraphicsLayer*> layers = m_scene->layers();
+  LOG_INFO(QString("Found %1 layers to include in zoom calculation").arg(layers.size()));
+  
   for (int i = 0; i < layers.size(); ++i) {
-    bounding = bounding.united(layers[i]->boundingRect());
+    QRectF layerBounds = layers[i]->boundingRect();
+    LOG_INFO(QString("Layer %1 bounds: x=%2, y=%3, w=%4, h=%5")
+            .arg(i).arg(layerBounds.x()).arg(layerBounds.y())
+            .arg(layerBounds.width()).arg(layerBounds.height()));
+    bounding = bounding.united(layerBounds);
   }
+  
+  LOG_INFO(QString("Final bounding rect: x=%1, y=%2, w=%3, h=%4")
+          .arg(bounding.x()).arg(bounding.y())
+          .arg(bounding.width()).arg(bounding.height()));
+  
   zoomToRect(bounding);
 }
 

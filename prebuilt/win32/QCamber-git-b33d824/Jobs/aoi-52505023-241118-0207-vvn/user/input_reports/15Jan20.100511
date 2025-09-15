@@ -1,0 +1,1403 @@
+Date : 15 Jan 2020
+Time : 10:05
+
+
+----------------------------------------------------------------------
+(*)  1. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/DDATA_1.dat
+----------------------------------------------------------------------
+        File size         : 69702 Bytes
+        Format            : Excellon1
+        Step  name        : 1st.52505023new
+        Layer name        : ddata_1.dat
+
+        Start translation : 10:04:10
+        End   translation : 10:04:10
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+        Tool units        : inch
+        Wheel name        : dlist_1.txt
+        Wheel template    : loc3
+
+             Tools  Histogram    
+        =========================
+         1.T01, Count = 3990, Size = 400 my (15.748 mil)
+         2.T02, Count = 105, Size = 1200 my (47.244 mil)
+         3.T03, Count = 41, Size = 1400 my (55.118 mil)
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_drl_def_drill - 0 (Excellon)
+
+       iol_exc_use_header - no
+
+       iol_exc_g00_canc_comp - yes
+
+       iol_read_rout_chain - yes
+
+       iol_reset_after_tool_change - no
+
+       iol_exc_g32_g33_comp - no
+ 
+ ==========================================================
+
+        Warning! Tool not selected before first command, may affect the data.
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  2. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/DDATA_2.dat
+----------------------------------------------------------------------
+        File size         : 1264 Bytes
+        Format            : Excellon1
+        Step  name        : 1st.52505023new
+        Layer name        : ddata_2.dat
+
+        Start translation : 10:04:10
+        End   translation : 10:04:10
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+        Tool units        : inch
+        Wheel name        : dlist_2.txt
+        Wheel template    : loc2
+
+             Tools  Histogram    
+        =========================
+         1.T01, Count = 26, Size = 1750 my (68.898 mil)
+         2.T02, Count = 9, Size = 2250 my (88.583 mil)
+         3.T03, Count = 5, Size = 3300 my (129.921 mil)
+         4.T04, Count = 21, Size = 3500 my (137.795 mil)
+         5.T05, Count = 9, Size = 4000 my (157.48 mil)
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_drl_def_drill - 0 (Excellon)
+
+       iol_exc_use_header - no
+
+       iol_exc_g00_canc_comp - yes
+
+       iol_read_rout_chain - yes
+
+       iol_reset_after_tool_change - no
+
+       iol_exc_g32_g33_comp - no
+ 
+ ==========================================================
+
+        Warning! Tool not selected before first command, may affect the data.
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  3. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_1.dat
+----------------------------------------------------------------------
+        File size         : 20792 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_1.dat
+
+        Start translation : 10:04:10
+        End   translation : 10:04:11
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r50 my (r1.969 mil), Count = 150
+         2.D011, Symbol = r150 my (r5.906 mil), Count = 1208
+         3.D012, Symbol = r250 my (r9.843 mil), Count = 16
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_1.dat
+Line = 6; Position = 150
+Last record = 76350I0J-650*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_1.dat
+Line = 6; Position = 231
+Last record = 76350I0J-650*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_1.dat
+Line = 6; Position = 309
+Last record = 76350I0J-650*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_1.dat
+Line = 6; Position = 386
+Last record = 76350I0J-650*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  4. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_2.dat
+----------------------------------------------------------------------
+        File size         : 1493016 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_2.dat
+
+        Start translation : 10:04:11
+        End   translation : 10:04:25
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Re-input layer(s) generated:
+            pdata_2.dat+1 Configuration: iol_gbr_arc_as_full_circle = no.
+            pdata_2.dat+2 Configuration: iol_274x_g75_current_arc = yes.
+
+        Warning! Interpreted zero-degree arc as 360 degree. See configuration parameter iol_gbr_arc_as_full_circle .
+        Warning! Inconsistent arc was broken into two arcs. See layer note.
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r100 my (r3.937 mil), Count = 21520
+         2.D011, Symbol = r130 my (r5.118 mil), Count = 12796
+         3.D012, Symbol = r200 my (r7.874 mil), Count = 4
+         4.D013, Symbol = r250 my (r9.843 mil), Count = 34082
+         5.D014, Symbol = r300 my (r11.811 mil), Count = 984
+         6.D015, Symbol = r350 my (r13.78 mil), Count = 24
+         7.D016, Symbol = r400 my (r15.748 mil), Count = 800
+         8.D017, Symbol = r500 my (r19.685 mil), Count = 72
+         9.D018, Symbol = r600 my (r23.622 mil), Count = 160
+        10.D019, Symbol = r650 my (r25.591 mil), Count = 24
+        11.D020, Symbol = r700 my (r27.559 mil), Count = 16
+        12.D021, Symbol = r800 my (r31.496 mil), Count = 4320
+        13.D022, Symbol = r850 my (r33.465 mil), Count = 16
+        14.D023, Symbol = r900 my (r35.433 mil), Count = 76
+        15.D024, Symbol = r950 my (r37.402 mil), Count = 4
+        16.D025, Symbol = r1000 my (r39.37 mil), Count = 52
+        17.D026, Symbol = r1100 my (r43.307 mil), Count = 4
+        18.D027, Symbol = r1500 my (r59.055 mil), Count = 64
+        19.D028, Symbol = r1750 my (r68.898 mil), Count = 104
+        20.D029, Symbol = r1900 my (r74.803 mil), Count = 40
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_2.dat
+Line = 23; Position = 88871
+Last record = 130795Y31605I-50J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_2.dat
+Line = 23; Position = 88937
+Last record = 131345Y31555I0J-50*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_2.dat
+Line = 23; Position = 107138
+Last record = 135781Y72940I-50J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_2.dat
+Line = 23; Position = 107174
+Last record = 133031Y72890I0J-50*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  5. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_3.dat
+----------------------------------------------------------------------
+        File size         : 537731 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_3.dat
+
+        Start translation : 10:04:25
+        End   translation : 10:04:28
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r100 my (r3.937 mil), Count = 25996
+         2.D011, Symbol = r250 my (r9.843 mil), Count = 848
+         3.D012, Symbol = r600 my (r23.622 mil), Count = 323
+         4.D013, Symbol = r950 my (r37.402 mil), Count = 268
+         5.D014, Symbol = r1250 my (r49.213 mil), Count = 4
+         6.D015, Symbol = r1650 my (r64.961 mil), Count = 64
+         7.D016, Symbol = r2250 my (r88.583 mil), Count = 24
+         8.D017, Symbol = r2750 my (r108.268 mil), Count = 8
+         9.D018, Symbol = r3800 my (r149.606 mil), Count = 4
+        10.D019, Symbol = r4000 my (r157.48 mil), Count = 20
+        11.D020, Symbol = r4500 my (r177.165 mil), Count = 8
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_3.dat
+Line = 14; Position = 19224
+Last record = 220202I-198J-775*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_3.dat
+Line = 14; Position = 19754
+Last record = 220202I-198J-775*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_3.dat
+Line = 14; Position = 20284
+Last record = 220202I-198J-775*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_3.dat
+Line = 14; Position = 20814
+Last record = 220202I-198J-775*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  6. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_4.dat
+----------------------------------------------------------------------
+        File size         : 815817 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_4.dat
+
+        Start translation : 10:04:28
+        End   translation : 10:04:34
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Re-input layer(s) generated:
+            pdata_4.dat+1 Configuration: iol_gbr_arc_as_full_circle = no.
+            pdata_4.dat+2 Configuration: iol_274x_g75_current_arc = yes.
+
+        Warning! Interpreted zero-degree arc as 360 degree. See configuration parameter iol_gbr_arc_as_full_circle .
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r150 my (r5.906 mil), Count = 42148
+         2.D011, Symbol = r200 my (r7.874 mil), Count = 10045
+         3.D012, Symbol = r300 my (r11.811 mil), Count = 632
+         4.D013, Symbol = r400 my (r15.748 mil), Count = 32
+         5.D014, Symbol = r500 my (r19.685 mil), Count = 20
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_4.dat
+Line = 8; Position = 3178
+Last record = 0J700D01*
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_4.dat
+Line = 8; Position = 3299
+Last record = 0J700D01*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_4.dat
+Line = 8; Position = 7189
+Last record = 0J-700D01*
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_4.dat
+Line = 8; Position = 7189
+Last record = 0J-700D01*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  7. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_5.dat
+----------------------------------------------------------------------
+        File size         : 1983195 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_5.dat
+
+        Start translation : 10:04:34
+        End   translation : 10:04:53
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Re-input layer(s) generated:
+            pdata_5.dat+1 Configuration: iol_gbr_arc_as_full_circle = no.
+            pdata_5.dat+2 Configuration: iol_274x_g75_current_arc = yes.
+
+        Warning! Interpreted zero-degree arc as 360 degree. See configuration parameter iol_gbr_arc_as_full_circle .
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r100 my (r3.937 mil), Count = 34400
+         2.D011, Symbol = r130 my (r5.118 mil), Count = 14162
+         3.D012, Symbol = r250 my (r9.843 mil), Count = 39516
+         4.D013, Symbol = r300 my (r11.811 mil), Count = 296
+         5.D014, Symbol = r350 my (r13.78 mil), Count = 48
+         6.D015, Symbol = r400 my (r15.748 mil), Count = 1134
+         7.D016, Symbol = r500 my (r19.685 mil), Count = 192
+         8.D017, Symbol = r600 my (r23.622 mil), Count = 236
+         9.D018, Symbol = r650 my (r25.591 mil), Count = 76
+        10.D019, Symbol = r750 my (r29.528 mil), Count = 4
+        11.D020, Symbol = r800 my (r31.496 mil), Count = 4504
+        12.D021, Symbol = r850 my (r33.465 mil), Count = 16
+        13.D022, Symbol = r900 my (r35.433 mil), Count = 48
+        14.D023, Symbol = r1000 my (r39.37 mil), Count = 96
+        15.D024, Symbol = r1100 my (r43.307 mil), Count = 144
+        16.D025, Symbol = r1300 my (r51.181 mil), Count = 8
+        17.D026, Symbol = r1500 my (r59.055 mil), Count = 32
+        18.D027, Symbol = r1750 my (r68.898 mil), Count = 104
+        19.D028, Symbol = r2000 my (r78.74 mil), Count = 4
+        20.D029, Symbol = r2050 my (r80.709 mil), Count = 60
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_5.dat
+Line = 23; Position = 85191
+Last record = -166280Y46130I-50J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_5.dat
+Line = 23; Position = 85349
+Last record = -161870Y46080I0J-50*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_5.dat
+Line = 23; Position = 86782
+Last record = -195165Y33480I-50J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_5.dat
+Line = 23; Position = 86940
+Last record = -194345Y33355I0J-50*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  8. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_6.dat
+----------------------------------------------------------------------
+        File size         : 731697 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_6.dat
+
+        Start translation : 10:04:53
+        End   translation : 10:04:56
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r100 my (r3.937 mil), Count = 36020
+         2.D011, Symbol = r600 my (r23.622 mil), Count = 323
+         3.D012, Symbol = r950 my (r37.402 mil), Count = 344
+         4.D013, Symbol = r1250 my (r49.213 mil), Count = 144
+         5.D014, Symbol = r1600 my (r62.992 mil), Count = 104
+         6.D015, Symbol = r1900 my (r74.803 mil), Count = 40
+         7.D016, Symbol = r2250 my (r88.583 mil), Count = 24
+         8.D017, Symbol = r2750 my (r108.268 mil), Count = 8
+         9.D018, Symbol = r3800 my (r149.606 mil), Count = 4
+        10.D019, Symbol = r4000 my (r157.48 mil), Count = 20
+        11.D020, Symbol = r4500 my (r177.165 mil), Count = 8
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_6.dat
+Line = 14; Position = 113596
+Last record = -175935Y64610I-50J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_6.dat
+Line = 14; Position = 113754
+Last record = -174535Y64560I0J-50*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_6.dat
+Line = 14; Position = 114907
+Last record = -184035Y64610I-50J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_6.dat
+Line = 14; Position = 115065
+Last record = -182635Y64560I0J-50*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  9. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_7.dat
+----------------------------------------------------------------------
+        File size         : 995354 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_7.dat
+
+        Start translation : 10:04:56
+        End   translation : 10:05:01
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Re-input layer(s) generated:
+            pdata_7.dat+1 Configuration: iol_gbr_arc_as_full_circle = no.
+
+        Warning! Interpreted zero-degree arc as 360 degree. See configuration parameter iol_gbr_arc_as_full_circle .
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r100 my (r3.937 mil), Count = 64
+         2.D011, Symbol = r150 my (r5.906 mil), Count = 62980
+         3.D012, Symbol = r200 my (r7.874 mil), Count = 1732
+         4.D013, Symbol = r500 my (r19.685 mil), Count = 44
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_7.dat
+Line = 7; Position = 6181
+Last record = 0J700D01*
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_7.dat
+Line = 7; Position = 6216
+Last record = 0J700D01*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_7.dat
+Line = 7; Position = 13474
+Last record = 0J-700D01*
+
+        Warning! Interpreted zero-degree arc as 360 degree.
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_7.dat
+Line = 7; Position = 13474
+Last record = 0J-700D01*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*) 10. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_8.dat
+----------------------------------------------------------------------
+        File size         : 361761 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_8.dat
+
+        Start translation : 10:05:01
+        End   translation : 10:05:05
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Re-input layer(s) generated:
+            pdata_8.dat+1 Configuration: iol_gbr_arc_as_full_circle = no.
+
+        Warning! Interpreted zero-degree arc as 360 degree. See configuration parameter iol_gbr_arc_as_full_circle .
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r130 my (r5.118 mil), Count = 768
+         2.D011, Symbol = r200 my (r7.874 mil), Count = 16
+         3.D012, Symbol = r250 my (r9.843 mil), Count = 14392
+         4.D013, Symbol = r900 my (r35.433 mil), Count = 2548
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_8.dat
+Line = 7; Position = 62279
+Last record = 134928Y36292I-611J352*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_8.dat
+Line = 7; Position = 62302
+Last record = 134929Y36294I-115J50*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_8.dat
+Line = 7; Position = 62324
+Last record = 134984Y36530I-649J276*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_8.dat
+Line = 7; Position = 62378
+Last record = 135839Y33120I0J-425*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*) 11. Path : (File) C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_9.dat
+----------------------------------------------------------------------
+        File size         : 458294 Bytes
+        Format            : Gerber274x
+        Step  name        : 1st.52505023new
+        Layer name        : pdata_9.dat
+
+        Start translation : 10:05:05
+        End   translation : 10:05:11
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 3.3
+        Separator char    : *
+
+        Re-input layer(s) generated:
+            pdata_9.dat+1 Configuration: iol_gbr_arc_as_full_circle = no.
+
+        Warning! Interpreted zero-degree arc as 360 degree. See configuration parameter iol_gbr_arc_as_full_circle .
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r130 my (r5.118 mil), Count = 132
+         2.D011, Symbol = r200 my (r7.874 mil), Count = 16
+         3.D012, Symbol = r250 my (r9.843 mil), Count = 19634
+         4.D013, Symbol = r900 my (r35.433 mil), Count = 2448
+         5.D014, Symbol = r1000 my (r39.37 mil), Count = 304
+         6.D015, Symbol = r1100 my (r43.307 mil), Count = 16
+         7.D016, Symbol = r6000 my (r236.22 mil), Count = 12
+        
+ 
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+       iol_inp_inconsistent_arc_note_threshold - 98.425197 mils
+
+       iol_accept_raw_data - no
+
+       iol_ignore_small_polys - yes
+
+       iol_force_no_break_sr - no
+
+       iol_274x_circle_as_edge_in_poly - no
+
+       iol_274x_dont_accumulate_of - no
+
+       iol_274x_set_octagon_rotation - no
+
+       iol_274x_set_polygon_rotation - no
+
+       iol_gbr_brk_diag_sqrs - yes
+
+       iol_gbr_ignore_zero_radius_arc - yes
+
+       iol_gbr_diag_type - 2
+
+       iol_274x_ill_polygon - no
+
+       iol_fix_ill_polygon - yes
+
+       iol_274x_contourize_neg_symbol - yes
+
+       iol_274x_contourize_neg_symbol_color - 1 (Yellow)
+
+       iol_274x_ko_polarity - Absolute
+
+       iol_274x_aname_with_comma - yes
+
+       iol_274x_sr_merge_pcb - yes
+
+       iol_gbr_polygon_break - 1 (Allow)
+
+       iol_diag_rect_line - 1 (line)
+
+       iol_274x_limit_dcode - no
+
+       iol_gbr_eof_err - no
+
+       iol_gbr_arc_as_full_circle - yes
+
+       iol_274x_convert_macro - no
+
+       iol_274x_convert_macro_tolerance - 0.25
+
+       iol_274x_g75_current_arc - no
+
+       iol_274x_ignore_d01_alone - no
+
+       iol_274x_sr_ij_scaled - no
+
+       iol_inp_default_multi_quadrant - no
+
+       iol_gbr_japan_gerber - yes
+
+       iol_gbr_report_japan_gerber - no
+
+       iol_274x_ip_background - no
+
+       iol_274x_am_prim_rot_center - yes
+
+       iol_inp_reinput - yes
+
+       iol_gbr_arc_on_axis - no
+ 
+ ==========================================================
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_9.dat
+Line = 10; Position = 46651
+Last record = 149511Y20244I-425J0*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_9.dat
+Line = 10; Position = 46694
+Last record = 148918Y20660I-301J-301*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_9.dat
+Line = 10; Position = 46827
+Last record = 150385Y20704I300J-300*
+
+        Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+File = C:/Users/ADMINI~1/Desktop/NE840F~1/AZ1W13~1/AZ1W13~1/PHOTO274X/PDATA_9.dat
+Line = 10; Position = 47198
+Last record = 138731Y6722I-301J301*
+
+Number of location messages exceeds 40.
+Rest of messages suppressed and can be found in log.
+----------------------------------------------------------------------
+
+
+        ****************************
+        *Grand Total Dcodes Summary*
+        ****************************
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r150 my (r5.906 mil), Count = 42148
+         2.D010, Symbol = r50 my (r1.969 mil), Count = 150
+         3.D010, Symbol = r100 my (r3.937 mil), Count = 118000
+         4.D010, Symbol = r130 my (r5.118 mil), Count = 900
+         5.D011, Symbol = r130 my (r5.118 mil), Count = 26958
+         6.D011, Symbol = r200 my (r7.874 mil), Count = 10077
+         7.D011, Symbol = r150 my (r5.906 mil), Count = 64188
+         8.D011, Symbol = r600 my (r23.622 mil), Count = 323
+         9.D011, Symbol = r250 my (r9.843 mil), Count = 848
+        10.D012, Symbol = r300 my (r11.811 mil), Count = 632
+        11.D012, Symbol = r250 my (r9.843 mil), Count = 73558
+        12.D012, Symbol = r950 my (r37.402 mil), Count = 344
+        13.D012, Symbol = r600 my (r23.622 mil), Count = 323
+        14.D012, Symbol = r200 my (r7.874 mil), Count = 1736
+        15.D013, Symbol = r400 my (r15.748 mil), Count = 32
+        16.D013, Symbol = r1250 my (r49.213 mil), Count = 144
+        17.D013, Symbol = r900 my (r35.433 mil), Count = 4996
+        18.D013, Symbol = r250 my (r9.843 mil), Count = 34082
+        19.D013, Symbol = r500 my (r19.685 mil), Count = 44
+        20.D013, Symbol = r950 my (r37.402 mil), Count = 268
+        21.D013, Symbol = r300 my (r11.811 mil), Count = 296
+        22.D014, Symbol = r1000 my (r39.37 mil), Count = 304
+        23.D014, Symbol = r300 my (r11.811 mil), Count = 984
+        24.D014, Symbol = r1600 my (r62.992 mil), Count = 104
+        25.D014, Symbol = r500 my (r19.685 mil), Count = 20
+        26.D014, Symbol = r350 my (r13.78 mil), Count = 48
+        27.D014, Symbol = r1250 my (r49.213 mil), Count = 4
+        28.D015, Symbol = r1650 my (r64.961 mil), Count = 64
+        29.D015, Symbol = r400 my (r15.748 mil), Count = 1134
+        30.D015, Symbol = r1900 my (r74.803 mil), Count = 40
+        31.D015, Symbol = r1100 my (r43.307 mil), Count = 16
+        32.D015, Symbol = r350 my (r13.78 mil), Count = 24
+        33.D016, Symbol = r6000 my (r236.22 mil), Count = 12
+        34.D016, Symbol = r500 my (r19.685 mil), Count = 192
+        35.D016, Symbol = r2250 my (r88.583 mil), Count = 48
+        36.D016, Symbol = r400 my (r15.748 mil), Count = 800
+        37.D017, Symbol = r500 my (r19.685 mil), Count = 72
+        38.D017, Symbol = r600 my (r23.622 mil), Count = 236
+        39.D017, Symbol = r2750 my (r108.268 mil), Count = 16
+        40.D018, Symbol = r3800 my (r149.606 mil), Count = 8
+        41.D018, Symbol = r600 my (r23.622 mil), Count = 160
+        42.D018, Symbol = r650 my (r25.591 mil), Count = 76
+        43.D019, Symbol = r650 my (r25.591 mil), Count = 24
+        44.D019, Symbol = r750 my (r29.528 mil), Count = 4
+        45.D019, Symbol = r4000 my (r157.48 mil), Count = 40
+        46.D020, Symbol = r800 my (r31.496 mil), Count = 4504
+        47.D020, Symbol = r700 my (r27.559 mil), Count = 16
+        48.D020, Symbol = r4500 my (r177.165 mil), Count = 16
+        49.D021, Symbol = r850 my (r33.465 mil), Count = 16
+        50.D021, Symbol = r800 my (r31.496 mil), Count = 4320
+        51.D022, Symbol = r850 my (r33.465 mil), Count = 16
+        52.D022, Symbol = r900 my (r35.433 mil), Count = 48
+        53.D023, Symbol = r1000 my (r39.37 mil), Count = 96
+        54.D023, Symbol = r900 my (r35.433 mil), Count = 76
+        55.D024, Symbol = r1100 my (r43.307 mil), Count = 144
+        56.D024, Symbol = r950 my (r37.402 mil), Count = 4
+        57.D025, Symbol = r1300 my (r51.181 mil), Count = 8
+        58.D025, Symbol = r1000 my (r39.37 mil), Count = 52
+        59.D026, Symbol = r1100 my (r43.307 mil), Count = 4
+        60.D026, Symbol = r1500 my (r59.055 mil), Count = 32
+        61.D027, Symbol = r1500 my (r59.055 mil), Count = 64
+        62.D027, Symbol = r1750 my (r68.898 mil), Count = 104
+        63.D028, Symbol = r2000 my (r78.74 mil), Count = 4
+        64.D028, Symbol = r1750 my (r68.898 mil), Count = 104
+        65.D029, Symbol = r1900 my (r74.803 mil), Count = 40
+        66.D029, Symbol = r2050 my (r80.709 mil), Count = 60
+        

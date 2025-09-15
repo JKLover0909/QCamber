@@ -1,5 +1,5 @@
 TEMPLATE = app
-QT += widgets
+QT += widgets svg
 CONFIG += debug_and_release
 
 MOC_DIR = .build
@@ -16,6 +16,7 @@ include (gui/gui.pri)
 HEADERS += \
   archiveloader.h \
   context.h \
+  logger.h \
   macros.h \
   settings.h \
   symbolpool.h
@@ -40,3 +41,8 @@ VERSION = 0.1.0
 QMAKE_TARGET_PRODUCT = "QCamber"
 QMAKE_TARGET_DESCRIPTION = ""
 QMAKE_TARGET_COPYRIGHT = "Copyright 2013 - 2015 QCamber Authors"
+
+# Enable console subsystem for Windows debug builds
+win32:CONFIG(debug, debug|release) {
+    CONFIG += console
+}

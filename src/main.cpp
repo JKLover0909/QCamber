@@ -25,18 +25,35 @@
 #include "code39.h"
 #include "context.h"
 #include "jobmanagerdialog.h"
+#include "logger.h"
 #include "settings.h"
 
 int main(int argc, char *argv[])
 {
   QApplication app(argc, argv);
 
+  // Initialize debug console
+  Logger::instance().initConsole();
+  LOG_STEP("Application startup", "QCamber PCB Viewer");
+  
+  LOG_STEP("Initializing Code39 patterns");
   Code39::initPatterns();
+  LOG_INFO("Code39 patterns initialized successfully");
+  
+  LOG_STEP("Loading configuration", "config.ini");
   Settings::load("config.ini");
   ctx.bg_color = QColor(SETTINGS->get("Color", "BG").toString());
+  LOG_INFO(QString("Background color set to: %1").arg(ctx.bg_color.name()));
 
+  LOG_STEP("Creating main dialog");
   JobManagerDialog dialog;
   dialog.show();
+  LOG_INFO("JobManagerDialog displayed");
 
-  return app.exec();
+  LOG_STEP("Starting application event loop");
+  int result = app.exec();
+  LOG_STEP("Application shutdown", QString("Exit code: %1").arg(result));
+  
+  return result;
 }
+

@@ -1,0 +1,7 @@
+DISPLAY {
+    L0 = i_2
+}
+DISPLAY {
+    L0 = i_2
+    L1 = nc_1
+}

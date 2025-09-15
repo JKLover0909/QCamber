@@ -1,0 +1,170 @@
+TTL Input Warning Report
+MSV 1
+CAT Error! Failure during file translation
+CAT Information about missing, skipped, unsupported or found commands
+CAT SIP warnings
+CAT Warning appears during translation
+CAT Warning! Break polygon by D02 code
+CAT Warning! Ignore D02 inside polygon.
+CAT Warning! Zero size dcode defined.
+CAT Full circle definition in polygon
+CAT Breaking diagonal square line
+CAT Warning! Found NULL character / Non-printable.
+CAT Warning! Converting very big radius arc to line.
+CAT Must break step & repeat
+CAT Warning! Added G01 (linear interpolation) command
+CAT Warning! An arc with special aperture converted to Round aperture
+CAT Warning! Ignoring less than 3 edges AM outline.
+CAT Diagonal rectangular line found
+CAT Warning! Sip was converted to outline.
+CAT Warning! Octagon angle setting
+CAT Warning! Polygon angle setting
+CAT Warning! An arc with radius zero was found
+CAT Warning! Zero degree arc was changed to line.
+CAT Warning! Found empty macro
+CAT Warning! Absolute value of a negative dimension of aperture macro entity was taken
+CAT Warning! Inconsistent arc definition. Very small arc replaced by line.
+CAT Warning! Inconsistent arc was broken into two arcs
+CAT Warning! Polygon aperture encountered
+CAT Warning! Missing separator.
+CAT Warning! Negative I or J encountered. G75 is assumed
+CAT Warning! Some steps may have negative features and they overlap
+CAT Warning! Layer exceeds coordinates limit
+CAT Warning! Layer is empty after input
+CAT Warning! Numbering format is bigger than 5.5
+CAT Warning! D03 found within a polygon - ignored.
+CAT Warning! Interpreted zero-degree arc as 360 degree.
+CAT Warning! Inconsistent arc was found and corrected.
+CAT Warning! Last polygon is missing G37. Closed by M02.
+CAT Warning! Inconsistent usage of standalone D01/D03 blocks might result in additional lines/pads
+CAT Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads
+CAT Warning! One edge polygon(s) changed into r0 lines
+CAT Some symbols with negative features were not contourized
+CAT Some symbols with negative features were contourized
+CAT Warning! Donut outer diameter equals to inner.
+CAT IPNEG parameter found
+CAT Aperture macro primitive rotated
+CAT Zero size primitive in aperture macro
+CAT Multiple OF/IO/MI/SF commands found
+CAT Block contains D01 command only
+CAT KO parameter encountered
+CAT M02 command is missing
+CAT Macro converted to standard symbol
+CAT Warning! Some steps may have negative features and they overlap
+CAT Warning! Arc encountered with no G74/5
+CAT Warning! duplicate Dcode definition.
+CAT Warning! no D01/D02/D03 after tool change, D02 assumed.
+CAT Warning! Arc not on single quadrant
+CAT Warning! Dcode not selected before first command, may affect the data.
+CAT Warning! Skipped zero size polygon.
+CAT Re-input with filling polylines has failed and only raw data was re-input
+CAT Re-input's layer was not created
+CAT Warning! Diagonal line with special symbol found.
+CAT Warning! Dcode definition problem result might be wrong.
+CAT Warning! Arc Start, End and Center points are on X or Y axis, Start End are not equal
+_END_CAT
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 0.13385827 0.19685039 0.13385827 0.19685039 0.19685039 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 0.15649646 0.19685039 0.15649646 0.19685039 0.19685039 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 0.40944882 0.19685039 0.40944882 0.19685039 0.47244094 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 0.43208701 0.19685039 0.43208701 0.19685039 0.47244094 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.13976339 1.06299213 0.13976339 1.06299213 0.19685039 1.06299213 0.00590551 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 0.13385827 20.86614173 0.13385827 20.86614173 0.19685039 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 0.15649646 20.86614173 0.15649646 20.86614173 0.19685039 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 0.40944882 20.86614173 0.40944882 20.86614173 0.47244094 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 0.43208701 20.86614173 0.43208701 20.86614173 0.47244094 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.80905472 1.06299213 20.80905472 1.06299213 20.86614173 1.06299213 0.00590551 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 19.94488189 0.19685039 19.94488189 0.19685039 19.88188976 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 19.9222437 0.19685039 19.9222437 0.19685039 19.88188976 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 19.66929134 0.19685039 19.66929134 0.19685039 19.60629921 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.19685039 19.64665315 0.19685039 19.64665315 0.19685039 19.60629921 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 0.2539374 19.01574803 0.2539374 19.01574803 0.19685039 19.01574803 0.00590551 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 19.7480315 20.86614173 19.7480315 20.86614173 19.68503937 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 19.72539331 20.86614173 19.72539331 20.86614173 19.68503937 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 19.47244094 20.86614173 19.47244094 20.86614173 19.40944882 0.00984252 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.86614173 19.44980276 20.86614173 19.44980276 20.86614173 19.40944882 0.00295276 R Y
+ITM 34 1
+TXT Warning! Interpreted zero-degree arc as 360 degree. 
+VAL I 1
+LYR 52502032bot_r
+SHP S AR 20.92322874 18.81889764 20.92322874 18.81889764 20.86614173 18.81889764 0.00590551 R Y
+ITM 38 1
+TXT Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style"  
+VAL I 1
+LYR 52502032bot_r
+SHP S RC 0.28740157 1.29133858 0.09448819 0.09448819

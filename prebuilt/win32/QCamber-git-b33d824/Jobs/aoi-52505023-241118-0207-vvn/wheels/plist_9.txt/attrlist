@@ -1,0 +1,4 @@
+.comment = 
+.wheel_type = gerber
+f_date = yww
+hole_pad = via_pad

@@ -6,3 +6,4 @@ Makefile
 camview.pro.user
 camview.pbproj
 camview.xcodeproj
+.vs/

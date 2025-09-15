@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="flex">
+      <UniqueIdentifier>{E0D8C965-CC5F-43d7-AD63-FAEF0BBC0F85}-flex</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="flex">
+      <UniqueIdentifier>{E0D8C965-CC5F-43d7-AD63-FAEF0BBC0F85}-flex</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="bison">
+      <UniqueIdentifier>{E0D8C965-CC5F-43d7-AD63-FAEF0BBC0F85}-bison</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="bison">
+      <UniqueIdentifier>{E0D8C965-CC5F-43d7-AD63-FAEF0BBC0F85}-bison</UniqueIdentifier>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="archiveloader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\arcrecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\arcsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\barcoderecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\barcodesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\butterflysymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\charrecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\clickablelabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\code39.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="context.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\diamondsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\donutrsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\donutssymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\ellipsesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\featurepropertiesdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\featuresdatastore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\featureshistogramwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\odbpp\featuresparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\fontdatastore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\odbpp\fontparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\graphicslayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\graphicslayerscene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\halfovalsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\holesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\horizontalhexagonsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\jobmanagerdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\jobmatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\layerfeatures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\layerinfobox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\linerecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\linesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\measuregraphicsitem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\moiresymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\noterecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\notes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\notesdatastore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\odbpp\notesparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\notesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\nullsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\octagonsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\odbppgraphicsminimapview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\odbppgraphicsscene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\odbppgraphicsview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\originsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\ovalsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\padrecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="graphicsview\profile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\rectanglesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\rectangularthermalopencornerssymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\rectangularthermalsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\roundsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\roundthermalroundsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\roundthermalsquaresymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\settingsdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\squarebutterflysymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\squareroundthermalsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\squaresymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\squarethermalopencornerssymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\squarethermalsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\structuredtextdatastore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\odbpp\structuredtextparser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\surfacerecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\surfacesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\symbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\symbolcount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbolpool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser\textrecord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\textsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\trianglesymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\usersymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="symbol\verticalhexagonsymbol.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\viewerwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="archiveloader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\arcsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\barcodesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\butterflysymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\odbpp\cachedparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\clickablelabel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="parser\code39.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\datastore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".build\db.tab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\diamondsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\donutrsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\donutssymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\ellipsesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\featurepropertiesdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="parser\featuresdatastore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\featureshistogramwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="parser\odbpp\featuresparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\fontdatastore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\odbpp\fontparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsview\graphicslayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="graphicsview\graphicslayerscene.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="symbol\halfovalsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\holesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\horizontalhexagonsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\jobmanagerdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="gui\jobmatrix.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="graphicsview\layer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsview\layerfeatures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\layerinfobox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="symbol\linesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsview\measuregraphicsitem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\moiresymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsview\notes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\notesdatastore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\odbpp\notesparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\notesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\nullsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\octagonsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="graphicsview\odbppgraphicsminimapview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="graphicsview\odbppgraphicsscene.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="graphicsview\odbppgraphicsview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="symbol\originsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\ovalsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="graphicsview\profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\record.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\rectanglesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\rectangularthermalopencornerssymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\rectangularthermalsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\roundsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\roundthermalroundsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\roundthermalsquaresymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\settingsdialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="symbol\squarebutterflysymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\squareroundthermalsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\squaresymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\squarethermalopencornerssymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\squarethermalsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\structuredtextdatastore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser\odbpp\structuredtextparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\surfacesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\symbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\symbolcount.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="symbol\symbolfactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbolpool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\textsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\trianglesymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\usersymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="symbol\verticalhexagonsymbol.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="gui\viewerwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="parser\odbpp\yyheader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".build\db.lex.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".build\db.tab.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <CustomBuild Include=".build\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="gui\featurepropertiesdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\featureshistogramwidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\jobmanagerdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\jobmatrix.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\layerinfobox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\settingsdialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\symbolcount.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="gui\viewerwindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\back.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\document-properties.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\down.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\forward.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\gtk-fullscreen.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\gtk-leave-fullscreen.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\gtk-underline.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\ok.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\remove.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resources.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="icons\screenruler.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\stock_print-setup.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\up.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\view-list-icons.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\visualization.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\zoom-in.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\zoom-original.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="icons\zoom-out.png">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="parser\odbpp\db.l">
+      <Filter>flex</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="parser\odbpp\db.y">
+      <Filter>bison</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\qcamber_resource.rc" />
+  </ItemGroup>
+</Project>

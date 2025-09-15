@@ -1,0 +1,34 @@
+Drill Snap Report
+
+Snap Layer : top_p
+Snap Max   : 8
+JOB  :  52505023new
+STEP :  2nd.52505023new
+DATE :  15 Jan 2020
+TIME :  11:03:32
+Created on GENESIS
+
+*********************************
+Action : Pad Snapping
+Layer  : nc_1
+
+
+   Snapped pads
+   ============
+   No results
+
+   Un snapped pads
+   ===============
+   No results
+
+   Spacing Problems
+   ================
+   No results
+
+   Snapped Grid pads
+   =================
+   No results
+
+   Spacing Problems to Grid
+   ========================
+   No results

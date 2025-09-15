@@ -1,0 +1,134 @@
+1579057497,RS274X input,-7.480315,0.9468504,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.6968504,0.1712598,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.7047244,2.0314961,,,,,,Warning! Interpreted zero-degree arc as 360 degree.
+1579057497,RS274X input,-1.7047244,2.0590551,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.7047244,2.0590551,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.488189,2.8070866,,,,,,Warning! Interpreted zero-degree arc as 360 degree.
+1579057497,RS274X input,-3.488189,2.8346457,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.488189,2.8346457,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.480315,4.0314961,,,,,,Warning! Interpreted zero-degree arc as 360 degree.
+1579057497,RS274X input,-7.480315,4.003937,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.6968504,3.2559055,,,,,,Warning! Interpreted zero-degree arc as 360 degree.
+1579057497,RS274X input,-5.6968504,3.2283465,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.7047244,5.0885827,,,,,,Warning! Interpreted zero-degree arc as 360 degree.
+1579057497,RS274X input,-1.7047244,5.1161417,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.7047244,5.1161417,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.488189,5.8641732,,,,,,Warning! Interpreted zero-degree arc as 360 degree.
+1579057497,RS274X input,-3.488189,5.8917323,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.488189,5.8917323,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.928937,2.1783465,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.928937,2.7688976,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-5.928937,2.7688976,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.921063,2.7525984,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-5.921063,2.7525984,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,2.7301575,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,2.7301575,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,2.7365748,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,2.7365748,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2582677,2.7686811,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2582677,2.7686811,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.9598819,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.9598819,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.9662992,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.9662992,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.9982677,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.9982677,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,2.004685,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,2.004685,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.824252,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.824252,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.8306693,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.8306693,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.8626378,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.8626378,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,1.8690551,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,1.8690551,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.0124016,0.2759843,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.0021654,0.2641732,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.0021654,0.2641732,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.4606102,0.6261811,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-5.4606102,0.6261811,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.2561024,0.8275591,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.2561024,0.8275591,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.2639764,0.2533071,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.2639764,0.2533071,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.2561024,0.2370079,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,0.275748,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,0.2693307,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,0.2693307,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9267717,0.2372244,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.0460236,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.0396063,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,1.0396063,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.0076378,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.0012205,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,1.0012205,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.1816535,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.1752362,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,1.1752362,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.1432677,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,1.1368504,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,1.1368504,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-2.182874,2.7417323,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-2.1726378,2.7299213,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-2.1726378,2.7299213,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.7244291,2.3797244,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.7244291,2.3797244,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.928937,5.2354331,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.928937,5.8259843,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-5.928937,5.8259843,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.921063,5.809685,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-5.921063,5.809685,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,5.7872441,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,5.7872441,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,5.7936614,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,5.7936614,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2582677,5.8257677,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2582677,5.8257677,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,5.0169685,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,5.0169685,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,5.0233858,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,5.0233858,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,5.0553543,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,5.0553543,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,5.0617717,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,5.0617717,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,4.8813386,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,4.8813386,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,4.8877559,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,4.8877559,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,4.9197244,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,4.9197244,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.2576575,4.9261417,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.2576575,4.9261417,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.0124016,3.3330709,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-7.0021654,3.3212598,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-7.0021654,3.3212598,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-5.4606102,3.6832677,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-5.4606102,3.6832677,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.2561024,3.8846457,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.2561024,3.8846457,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.2639764,3.3103937,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.2639764,3.3103937,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.2561024,3.2940945,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,3.3328346,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,3.3264173,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,3.3264173,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9267717,3.294311,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.1031102,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.0966929,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,4.0966929,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.0647244,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.0583071,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,4.0583071,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.2387402,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.2323228,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,4.2323228,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.2003543,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-1.9273819,4.193937,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-1.9273819,4.193937,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-2.182874,5.7988189,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-2.1726378,5.7870079,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-2.1726378,5.7870079,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .
+1579057497,RS274X input,-3.7244291,5.436811,,,,,,Warning! Negative I or J encountered. G75 is assumed. See configuration parameter iol_274x_g75_current_arc .
+1579057497,RS274X input,-3.7244291,5.436811,,,,,,Warning! Arc encountered with no G74/5. See configuration parameter iol_inp_default_multi_quadrant .

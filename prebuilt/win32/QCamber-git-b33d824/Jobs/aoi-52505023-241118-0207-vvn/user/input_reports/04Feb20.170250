@@ -1,0 +1,80 @@
+Date : 04 Feb 2020
+Time : 17:02
+Job  : 52505023-200120+7
+
+
+----------------------------------------------------------------------
+(*)  1. Path : (File) D:/CSQ/200204/lot_nonum/ci_52505023_top_s_lot
+----------------------------------------------------------------------
+        File size         : 1741 Bytes
+        Format            : Gerber274x
+        Step  name        : tan.52505023
+        Layer name        : ci_52505023_top_s_lot
+
+        Start translation : 17:02:50
+        End   translation : 17:02:50
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 4.5
+        Separator char    : *
+
+        Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style" 
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r420 my (r16.535 mil), Count = 3
+         2.D011, Symbol = r490 my (r19.291 mil), Count = 7
+         3.D012, Symbol = r210 my (r8.268 mil), Count = 10
+         4.D013, Symbol = r280 my (r11.024 mil), Count = 4
+         5.D014, Symbol = r140 my (r5.512 mil), Count = 33
+        
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+(*)  2. Path : (File) D:/CSQ/200204/lot_nonum/ci_52505023_top_s_nonum
+----------------------------------------------------------------------
+        File size         : 678 Bytes
+        Format            : Gerber274x
+        Step  name        : tan.52505023
+        Layer name        : ci_52505023_top_s_nonum
+
+        Start translation : 17:02:50
+        End   translation : 17:02:50
+
+        Data type         : ascii
+        Units             : mm
+        Coordinates       : absolute
+        Zeroes omitted    : leading
+        Number format     : 4.5
+        Separator char    : *
+
+        Warning! Inconsistent usage of D01/D03 blocks might result in missing lines/pads - check parameter "Input Gerber files using Japanese style" 
+        
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r140 my (r5.512 mil), Count = 26
+        
+
+----------------------------------------------------------------------
+
+
+        ****************************
+        *Grand Total Dcodes Summary*
+        ****************************
+
+        Assigned Dcodes
+        ===============
+         1.D010, Symbol = r140 my (r5.512 mil), Count = 26
+         2.D010, Symbol = r420 my (r16.535 mil), Count = 3
+         3.D011, Symbol = r490 my (r19.291 mil), Count = 7
+         4.D012, Symbol = r210 my (r8.268 mil), Count = 10
+         5.D013, Symbol = r280 my (r11.024 mil), Count = 4
+         6.D014, Symbol = r140 my (r5.512 mil), Count = 33
+        

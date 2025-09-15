@@ -1,0 +1,7 @@
+DISPLAY {
+    L0 = nc_ds
+}
+DISPLAY {
+    L0 = nc_ds
+    L1 = nc_ds
+}

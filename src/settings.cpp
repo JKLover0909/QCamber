@@ -21,6 +21,7 @@
  */
 
 #include "settings.h"
+#include "logger.h"
 
 Settings* Settings::m_Instance = NULL;
 
@@ -32,6 +33,23 @@ Settings* Settings::instance()
 Settings* Settings::load(const QString& filename)
 {
   m_Instance = new Settings(filename);
+  
+  // Initialize default colors if they don't exist
+  if (m_Instance->get("Color", "BG").toString().isEmpty()) {
+    LOG_INFO("Initializing default color settings");
+    
+    QStringList names, colors;
+    names << "BG" << "C1" << "C2" << "C3" << "C4" << "C5" << "C6";
+    colors << "#000000" << "#ff0000" << "#4ba503" << "#00adc6" << "#ffff3e"
+           << "#00007f" << "#aa00ff";
+
+    for (int i = 0; i < names.size(); ++i) {
+      m_Instance->set("Color", names[i], colors[i]);
+    }
+    
+    LOG_INFO("Default colors initialized");
+  }
+  
   return m_Instance;
 }
 

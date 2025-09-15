@@ -26,6 +26,7 @@
 #include <QtWidgets>
 
 #include "context.h"
+#include "logger.h"
 
 static const QString bgStyle = \
   "%1 {"
@@ -139,12 +140,19 @@ void LayerInfoBox::setActive(bool status)
 
 void LayerInfoBox::toggle(void)
 {
+  LOG_INFO(QString("LayerInfoBox::toggle() called for layer: %1, current state: %2").arg(m_name).arg(m_checked ? "checked" : "unchecked"));
+  
   emit toggled(m_checked);
   m_checked = !m_checked;
+
+  LOG_INFO(QString("Layer %1 state changed to: %2").arg(m_name).arg(m_checked ? "checked" : "unchecked"));
 
   if (!m_checked) {
     ui->colorIndicator->setStyleSheet(bgStyle.arg("QLabel", "transparent"));
     setActive(false);
+    LOG_INFO(QString("Layer %1 disabled, color indicator cleared").arg(m_name));
+  } else {
+    LOG_INFO(QString("Layer %1 enabled").arg(m_name));
   }
 }
 

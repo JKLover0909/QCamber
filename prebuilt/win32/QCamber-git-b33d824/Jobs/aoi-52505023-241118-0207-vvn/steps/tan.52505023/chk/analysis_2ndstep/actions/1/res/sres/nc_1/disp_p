@@ -1,0 +1,17 @@
+DISPLAY {
+    L0 = nc_1
+}
+DISPLAY {
+    L0 = top_p
+    L1 = bot_p
+    L2 = nc_1
+}
+DISPLAY {
+    L0 = nc_1
+    L1 = top_p
+    L2 = bot_p
+}
+DISPLAY {
+    L0 = nc_1
+    L1 = rout_1
+}

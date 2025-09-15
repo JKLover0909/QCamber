@@ -1,0 +1,21 @@
+Step Compare Report
+
+JOB Name : 52505023new
+Source Step : 2nd.52505023new
+Target Step : 1st.52505023new
+Date : 2020/1/15 11:4
+
+Area : profile
+S&R  : yes
+Layer	Tolerance	Resolution	Result
+top_s	 2	2000	OK
+top_r	 2	2000	NG
+top_p	 2	2000	OK
+i_2	 2	2000	OK
+i_3	 2	2000	OK
+bot_p	 2	2000	OK
+bot_r	 2	2000	NG
+bot_s	 2	2000	OK
+rout	 2	2000	OK
+pth	 2	2000	OK
+npth	 2	2000	OK

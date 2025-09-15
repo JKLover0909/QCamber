@@ -26,9 +26,9 @@
 #include <QFileSystemModel>
 #include <QWidget>
 
-#ifdef Q_WS_WIN
-# define TAR_CMD "./tar"
-# define GZIP_CMD "./gzip"
+#if defined(Q_WS_WIN) || defined(Q_OS_WIN)
+# define TAR_CMD "tar"  // Use system tar on Windows (available in Windows 10+)
+# define GZIP_CMD "7z"  // Use 7-zip as primary decompression tool
 # define PATH_SEP ";"
 #else
 # define TAR_CMD "tar"
@@ -57,6 +57,7 @@ public slots:
 
 private:
   int execute(QString cmd, QStringList args);
+  int executeGzipDecompression(QString filePath);
   bool recurRemove(const QString& dirname);
     
 private:

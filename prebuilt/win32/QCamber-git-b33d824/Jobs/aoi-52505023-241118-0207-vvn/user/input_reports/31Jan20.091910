@@ -1,0 +1,55 @@
+Date : 31 Jan 2020
+Time : 09:19
+Job  : 52505023-200120+3
+
+
+----------------------------------------------------------------------
+(*)  1. Path : (File) E:/LVA/thang 01/31-01/52505023/5250-5023 dxf.dxf
+----------------------------------------------------------------------
+        File size         : 21618 Bytes
+        Format            : DXF
+        Step  name        : tan.52505023
+        Layer name        : 5250-5023 dxf.dxf
+
+        Start translation : 09:19:10
+        End   translation : 09:19:10
+---------------------------------------------------------------------
+        DXF Translation Warnings
+        ========================
+        None.
+
+         
+ The following Configuration params may affect the Input  :
+ ==========================================================
+
+         iol_dxf_round_cap - yes
+
+         iol_dxf_circle_to_pad - yes
+
+         iol_dxf_poly_to_surface - no
+
+         iol_dxf_separate_frozen_layers - no
+
+         iol_dxf_single_layer - yes
+
+         iol_dxf_default_width - 1.0 (Mils / Micron*3) 
+
+         iol_dxf_round_line - 0
+
+         iol_dxf_model_only - no
+
+         iol_dxf_default_shx_bigfont - none
+
+         iol_dxf_input_empty_text - yes
+
+         iol_dxf_ttf_default_path - none
+
+         iol_dxf_island_detection - file
+
+         iol_dxf_pol_inner_touch_island - same
+
+         
+ ==========================================================
+
+----------------------------------------------------------------------
+
