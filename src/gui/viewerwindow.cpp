@@ -28,6 +28,7 @@
 
 #include "context.h"
 #include "layerinfobox.h"
+#include "logger.h"
 #include "settingsdialog.h"
 #include "settings.h"
 
@@ -403,5 +404,90 @@ void ViewerWindow::on_actionShowNotes_toggled(bool checked)
       ui->viewWidget->removeItem(m_visibles[i]->layer()->notes());
     }
   }
+  ui->viewWidget->setFocus(Qt::MouseFocusReason);
+}
+
+void ViewerWindow::on_actionExportPNG_triggered(void)
+{
+  LOG_STEP("Export to PNG triggered");
+  
+  // Create a default file name using job and step names
+  QString defaultFileName = QString("%1_%2").arg(m_job).arg(m_step);
+  
+  // Add layer names to the filename if there are visible layers
+  if (!m_visibles.isEmpty()) {
+    defaultFileName += "_";
+    for (int i = 0; i < qMin(m_visibles.size(), 3); ++i) {  // Limit to first 3 layers to avoid too long filenames
+      if (i > 0) {
+        defaultFileName += "+";
+      }
+      defaultFileName += m_visibles[i]->name();
+    }
+    if (m_visibles.size() > 3) {
+      defaultFileName += QString("+%1more").arg(m_visibles.size() - 3);
+    }
+  }
+  
+  defaultFileName += ".png";
+  
+  // Show file dialog to select save location
+  QString filePath = QFileDialog::getSaveFileName(this, tr("Export to PNG"),
+      defaultFileName, tr("PNG Files (*.png)"));
+  
+  if (filePath.isEmpty()) {
+    LOG_INFO("PNG export cancelled by user");
+    return;
+  }
+  
+  LOG_INFO(QString("Exporting to PNG file: %1").arg(filePath));
+  
+  // Make sure the file has .png extension
+  if (!filePath.endsWith(".png", Qt::CaseInsensitive)) {
+    filePath += ".png";
+  }
+  
+  // Create a pixmap to render the scene
+  QMessageBox msg(QMessageBox::Information, "Progress", "Rendering image...");
+  msg.setStandardButtons(QMessageBox::NoButton);
+  msg.show();
+  QApplication::processEvents();
+  
+  // Get the current view rect
+  QRect viewRect = ui->viewWidget->viewport()->rect();
+  QRectF sceneRect = ui->viewWidget->mapToScene(viewRect).boundingRect();
+  
+  // Create a high-resolution image (3x the screen resolution)
+  int scale = 3;
+  QImage image(viewRect.width() * scale, viewRect.height() * scale, QImage::Format_ARGB32);
+  image.fill(ctx.bg_color);
+  
+  // Set up a painter for the image
+  QPainter painter(&image);
+  painter.setRenderHint(QPainter::Antialiasing, true);
+  painter.setRenderHint(QPainter::TextAntialiasing, true);
+  painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+  
+  // Calculate the transform to render the current view at higher resolution
+  QRectF targetRect(0, 0, viewRect.width() * scale, viewRect.height() * scale);
+  
+  // Render the scene onto the image
+  LOG_INFO("Rendering scene to image");
+  ui->viewWidget->scene()->render(&painter, targetRect, sceneRect);
+  
+  // Save the image
+  bool success = image.save(filePath, "PNG");
+  
+  msg.hide();
+  
+  if (success) {
+    LOG_INFO(QString("PNG file saved successfully: %1").arg(filePath));
+    QMessageBox::information(this, tr("Export Successful"),
+                            tr("Design has been successfully exported to:\n%1").arg(filePath));
+  } else {
+    LOG_ERROR(QString("Failed to save PNG file: %1").arg(filePath));
+    QMessageBox::critical(this, tr("Export Failed"),
+                         tr("Failed to save the design as PNG file. Please check file permissions."));
+  }
+  
   ui->viewWidget->setFocus(Qt::MouseFocusReason);
 }

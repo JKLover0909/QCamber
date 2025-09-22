@@ -107,6 +107,7 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionExportPNG"/>
    </widget>
    <widget class="QMenu" name="menu">
     <property name="title">
@@ -173,6 +174,8 @@
    <addaction name="actionShowOutline"/>
    <addaction name="actionShowStepRepeat"/>
    <addaction name="actionShowNotes"/>
+   <addaction name="separator"/>
+   <addaction name="actionExportPNG"/>
   </widget>
   <action name="actionSetColor">
    <property name="text">
@@ -351,6 +354,18 @@
    </property>
    <property name="text">
     <string>Feature Properties</string>
+   </property>
+  </action>
+  <action name="actionExportPNG">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/document-properties.png</normaloff>:/icons/document-properties.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export as PNG</string>
+   </property>
+   <property name="toolTip">
+    <string>Export current view as PNG image</string>
    </property>
   </action>
  </widget>
