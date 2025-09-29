@@ -291,6 +291,9 @@
     <ClCompile Include="gui\viewerwindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gui\gotocoordinatedialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archiveloader.h">
@@ -517,6 +520,9 @@
     </ClInclude>
     <ClInclude Include="logger.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gui\gotocoordinatedialog.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

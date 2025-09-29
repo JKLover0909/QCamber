@@ -33,6 +33,7 @@
 
 #include "context.h"
 #include "featurepropertiesdialog.h"
+#include "gotocoordinatedialog.h"
 #include "layerfeatures.h"
 #include "layerinfobox.h"
 #include "odbppgraphicsview.h"
@@ -82,6 +83,7 @@ public slots:
   void on_actionShowStepRepeat_toggled(bool checked);
   void on_actionShowNotes_toggled(bool checked);
   void on_actionExportPNG_triggered(void);
+  void on_actionGoToCoordinate_triggered(void);
 
 protected:
   QColor nextColor(void);
@@ -110,6 +112,7 @@ private:
   bool m_transition;
   symbolcount m_symbolCountView;
   FeaturePropertiesDialog* m_featurePropertiesDialog;
+  GoToCoordinateDialog* m_goToCoordinateDialog;
 };
 
 #endif // __MAINWINDOW_H__

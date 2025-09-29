@@ -206,6 +206,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="archiveloader.cpp" />
+    <ClCompile Include="gui\gotocoordinatedialog.cpp" />
     <ClCompile Include="parser\arcrecord.cpp" />
     <ClCompile Include="symbol\arcsymbol.cpp" />
     <ClCompile Include="parser\barcoderecord.cpp" />
@@ -284,6 +285,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="archiveloader.h" />
+    <QtMoc Include="gui\gotocoordinatedialog.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="symbol\arcsymbol.h" />
     <ClInclude Include="symbol\barcodesymbol.h" />

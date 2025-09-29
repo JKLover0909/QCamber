@@ -135,6 +135,8 @@
     <addaction name="separator"/>
     <addaction name="actionMeasure"/>
     <addaction name="separator"/>
+    <addaction name="actionGoToCoordinate"/>
+    <addaction name="separator"/>
     <addaction name="actionShowOutline"/>
     <addaction name="actionShowStepRepeat"/>
     <addaction name="actionShowNotes"/>
@@ -170,6 +172,8 @@
    <addaction name="actionPanDown"/>
    <addaction name="separator"/>
    <addaction name="actionMeasure"/>
+   <addaction name="separator"/>
+   <addaction name="actionGoToCoordinate"/>
    <addaction name="separator"/>
    <addaction name="actionShowOutline"/>
    <addaction name="actionShowStepRepeat"/>
@@ -366,6 +370,18 @@
    </property>
    <property name="toolTip">
     <string>Export current view as PNG image</string>
+   </property>
+  </action>
+  <action name="actionGoToCoordinate">
+   <property name="icon">
+    <iconset resource="../resources.qrc">
+     <normaloff>:/icons/gtk-fullscreen.png</normaloff>:/icons/gtk-fullscreen.png</iconset>
+   </property>
+   <property name="text">
+    <string>Go To Coordinate</string>
+   </property>
+   <property name="toolTip">
+    <string>Go to a specific X,Y coordinate</string>
    </property>
   </action>
  </widget>

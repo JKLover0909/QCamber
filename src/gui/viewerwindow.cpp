@@ -27,6 +27,7 @@
 #include <QDebug>
 
 #include "context.h"
+#include "gotocoordinatedialog.h"
 #include "layerinfobox.h"
 #include "logger.h"
 #include "settingsdialog.h"
@@ -54,6 +55,7 @@ ViewerWindow::ViewerWindow(QWidget *parent) :
   statusBar()->addPermanentWidget(unitCombo);
 
   m_featurePropertiesDialog = new FeaturePropertiesDialog(this);
+  m_goToCoordinateDialog = new GoToCoordinateDialog(this);
 
   connect(unitCombo, SIGNAL(currentIndexChanged(int)), this,
       SLOT(unitChanged(int)));
@@ -86,6 +88,7 @@ ViewerWindow::~ViewerWindow()
 {
   delete ui;
   delete m_featurePropertiesDialog;
+  delete m_goToCoordinateDialog;
 }
 
 void ViewerWindow::setJob(QString job)
@@ -446,6 +449,74 @@ void ViewerWindow::on_actionExportPNG_triggered(void)
     filePath += ".png";
   }
   
+  // Create resolution options dialog
+  QDialog resDialog(this);
+  resDialog.setWindowTitle(tr("Export Resolution"));
+  
+  QVBoxLayout* layout = new QVBoxLayout(&resDialog);
+  
+  // Resolution options
+  QLabel* label = new QLabel(tr("Choose PNG resolution:"), &resDialog);
+  layout->addWidget(label);
+  
+  QRadioButton* screenRes = new QRadioButton(tr("Current view size (3x scale)"), &resDialog);
+  QRadioButton* fixedRes = new QRadioButton(tr("Fixed size: 20000 x 20000 pixels"), &resDialog);
+  QRadioButton* customRes = new QRadioButton(tr("Custom size:"), &resDialog);
+  
+  screenRes->setChecked(true);
+  
+  layout->addWidget(screenRes);
+  layout->addWidget(fixedRes);
+  layout->addWidget(customRes);
+  
+  // Custom resolution input
+  QHBoxLayout* customLayout = new QHBoxLayout();
+  QSpinBox* widthBox = new QSpinBox(&resDialog);
+  QSpinBox* heightBox = new QSpinBox(&resDialog);
+  
+  widthBox->setRange(100, 32767);
+  heightBox->setRange(100, 32767);
+  widthBox->setValue(10000);
+  heightBox->setValue(10000);
+  widthBox->setSuffix(" px");
+  heightBox->setSuffix(" px");
+  widthBox->setEnabled(false);
+  heightBox->setEnabled(false);
+  
+  customLayout->addWidget(new QLabel(tr("Width:"), &resDialog));
+  customLayout->addWidget(widthBox);
+  customLayout->addWidget(new QLabel(tr("Height:"), &resDialog));
+  customLayout->addWidget(heightBox);
+  
+  layout->addLayout(customLayout);
+  
+  // Connect signals
+  QObject::connect(customRes, &QRadioButton::toggled, [widthBox, heightBox](bool checked) {
+    widthBox->setEnabled(checked);
+    heightBox->setEnabled(checked);
+  });
+  
+  // Warning for large images
+  QLabel* warningLabel = new QLabel(tr("Note: Very large images may take significant time to render and require substantial memory."), &resDialog);
+  warningLabel->setWordWrap(true);
+  warningLabel->setStyleSheet("color: #FF6600;");
+  layout->addWidget(warningLabel);
+  
+  // Buttons
+  QDialogButtonBox* buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, &resDialog);
+  layout->addWidget(buttonBox);
+  
+  QObject::connect(buttonBox, &QDialogButtonBox::accepted, &resDialog, &QDialog::accept);
+  QObject::connect(buttonBox, &QDialogButtonBox::rejected, &resDialog, &QDialog::reject);
+  
+  resDialog.setLayout(layout);
+  
+  // Show the dialog
+  if (resDialog.exec() != QDialog::Accepted) {
+    LOG_INFO("PNG export resolution dialog cancelled");
+    return;
+  }
+  
   // Create a pixmap to render the scene
   QMessageBox msg(QMessageBox::Information, "Progress", "Rendering image...");
   msg.setStandardButtons(QMessageBox::NoButton);
@@ -456,38 +527,158 @@ void ViewerWindow::on_actionExportPNG_triggered(void)
   QRect viewRect = ui->viewWidget->viewport()->rect();
   QRectF sceneRect = ui->viewWidget->mapToScene(viewRect).boundingRect();
   
-  // Create a high-resolution image (3x the screen resolution)
-  int scale = 3;
-  QImage image(viewRect.width() * scale, viewRect.height() * scale, QImage::Format_ARGB32);
-  image.fill(ctx.bg_color);
+  // Determine output image size based on user selection
+  int imgWidth, imgHeight;
+  QRectF targetRect;
   
-  // Set up a painter for the image
-  QPainter painter(&image);
-  painter.setRenderHint(QPainter::Antialiasing, true);
-  painter.setRenderHint(QPainter::TextAntialiasing, true);
-  painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
-  
-  // Calculate the transform to render the current view at higher resolution
-  QRectF targetRect(0, 0, viewRect.width() * scale, viewRect.height() * scale);
-  
-  // Render the scene onto the image
-  LOG_INFO("Rendering scene to image");
-  ui->viewWidget->scene()->render(&painter, targetRect, sceneRect);
-  
-  // Save the image
-  bool success = image.save(filePath, "PNG");
-  
-  msg.hide();
-  
-  if (success) {
-    LOG_INFO(QString("PNG file saved successfully: %1").arg(filePath));
-    QMessageBox::information(this, tr("Export Successful"),
-                            tr("Design has been successfully exported to:\n%1").arg(filePath));
+  if (fixedRes->isChecked()) {
+    // Fixed 20k x 20k resolution
+    imgWidth = 20000;
+    imgHeight = 20000;
+    
+    LOG_INFO("Using fixed 20000x20000 resolution");
+    
+    // Adjust scene rect to maintain aspect ratio
+    QRectF adjustedSceneRect = sceneRect;
+    double sceneAspect = sceneRect.width() / sceneRect.height();
+    double imgAspect = static_cast<double>(imgWidth) / imgHeight;
+    
+    if (sceneAspect > imgAspect) {
+      // Scene is wider than image aspect ratio
+      double newHeight = sceneRect.width() / imgAspect;
+      double heightDiff = newHeight - sceneRect.height();
+      adjustedSceneRect.adjust(0, -heightDiff/2, 0, heightDiff/2);
+    } else {
+      // Scene is taller than image aspect ratio
+      double newWidth = sceneRect.height() * imgAspect;
+      double widthDiff = newWidth - sceneRect.width();
+      adjustedSceneRect.adjust(-widthDiff/2, 0, widthDiff/2, 0);
+    }
+    
+    sceneRect = adjustedSceneRect;
+    targetRect = QRectF(0, 0, imgWidth, imgHeight);
+    
+  } else if (customRes->isChecked()) {
+    // Custom resolution
+    imgWidth = widthBox->value();
+    imgHeight = heightBox->value();
+    
+    LOG_INFO(QString("Using custom resolution: %1x%2").arg(imgWidth).arg(imgHeight));
+    
+    // Adjust scene rect to maintain aspect ratio
+    QRectF adjustedSceneRect = sceneRect;
+    double sceneAspect = sceneRect.width() / sceneRect.height();
+    double imgAspect = static_cast<double>(imgWidth) / imgHeight;
+    
+    if (sceneAspect > imgAspect) {
+      // Scene is wider than image aspect ratio
+      double newHeight = sceneRect.width() / imgAspect;
+      double heightDiff = newHeight - sceneRect.height();
+      adjustedSceneRect.adjust(0, -heightDiff/2, 0, heightDiff/2);
+    } else {
+      // Scene is taller than image aspect ratio
+      double newWidth = sceneRect.height() * imgAspect;
+      double widthDiff = newWidth - sceneRect.width();
+      adjustedSceneRect.adjust(-widthDiff/2, 0, widthDiff/2, 0);
+    }
+    
+    sceneRect = adjustedSceneRect;
+    targetRect = QRectF(0, 0, imgWidth, imgHeight);
+    
   } else {
-    LOG_ERROR(QString("Failed to save PNG file: %1").arg(filePath));
+    // Screen resolution (3x scale)
+    int scale = 3;
+    imgWidth = viewRect.width() * scale;
+    imgHeight = viewRect.height() * scale;
+    
+    LOG_INFO(QString("Using screen resolution with 3x scale: %1x%2").arg(imgWidth).arg(imgHeight));
+    targetRect = QRectF(0, 0, imgWidth, imgHeight);
+  }
+  
+  try {
+    // Create image with the selected dimensions
+    LOG_INFO(QString("Creating image with dimensions: %1x%2").arg(imgWidth).arg(imgHeight));
+    QImage image(imgWidth, imgHeight, QImage::Format_ARGB32);
+    
+    if (image.isNull()) {
+      throw std::runtime_error("Failed to allocate memory for image");
+    }
+    
+    image.fill(ctx.bg_color);
+    
+    // Set up a painter for the image
+    QPainter painter(&image);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::TextAntialiasing, true);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+    
+    // Update message
+    msg.setText(tr("Rendering image (%1x%2)...").arg(imgWidth).arg(imgHeight));
+    QApplication::processEvents();
+    
+    // Render the scene onto the image
+    LOG_INFO("Rendering scene to image");
+    ui->viewWidget->scene()->render(&painter, targetRect, sceneRect);
+    
+    // Save the image
+    msg.setText(tr("Saving PNG file..."));
+    QApplication::processEvents();
+    
+    LOG_INFO("Saving image to file");
+    bool success = image.save(filePath, "PNG");
+    
+    msg.hide();
+    
+    if (success) {
+      LOG_INFO(QString("PNG file saved successfully: %1").arg(filePath));
+      QMessageBox::information(this, tr("Export Successful"),
+                              tr("Design has been successfully exported to:\n%1\n\nResolution: %2x%3 pixels")
+                              .arg(filePath)
+                              .arg(imgWidth)
+                              .arg(imgHeight));
+    } else {
+      LOG_ERROR(QString("Failed to save PNG file: %1").arg(filePath));
+      QMessageBox::critical(this, tr("Export Failed"),
+                           tr("Failed to save the design as PNG file. Please check file permissions."));
+    }
+  }
+  catch (const std::exception& e) {
+    LOG_ERROR(QString("Exception during PNG export: %1").arg(e.what()));
+    msg.hide();
     QMessageBox::critical(this, tr("Export Failed"),
-                         tr("Failed to save the design as PNG file. Please check file permissions."));
+                         tr("Failed to create the PNG image: %1").arg(e.what()));
+  }
+  catch (...) {
+    LOG_ERROR("Unknown exception during PNG export");
+    msg.hide();
+    QMessageBox::critical(this, tr("Export Failed"),
+                         tr("Failed to create the PNG image due to insufficient memory. Try a smaller resolution."));
   }
   
   ui->viewWidget->setFocus(Qt::MouseFocusReason);
+}
+
+void ViewerWindow::on_actionGoToCoordinate_triggered(void)
+{
+  // Set the current display unit in the dialog
+  m_goToCoordinateDialog->setDisplayUnit(m_displayUnit);
+  
+  // Show the dialog
+  if (m_goToCoordinateDialog->exec() == QDialog::Accepted) {
+    // Get the coordinate (always in inches)
+    QPointF targetCoord = m_goToCoordinateDialog->getCoordinate();
+    
+    LOG_INFO(QString("Going to coordinate: (%1, %2) inches")
+             .arg(targetCoord.x())
+             .arg(targetCoord.y()));
+    
+    // Center the view on the target coordinate
+    ui->viewWidget->centerOn(targetCoord);
+    
+    // Zoom to a reasonable level (2x zoom)
+    ui->viewWidget->scaleView(16.0);
+    
+    // Update focus
+    ui->viewWidget->setFocus(Qt::MouseFocusReason);
+  }
 }
