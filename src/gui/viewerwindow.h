@@ -98,6 +98,8 @@ private slots:
   void updateMeasureResult(QRectF rect);
 
 private:
+  void exportPNGAtCoordinate(const QPointF& coordinate);
+  
   Ui::ViewerWindow *ui;
   QString m_job;
   QString m_step;

@@ -25,6 +25,7 @@
 
 #include <QtWidgets>
 #include <QDebug>
+#include <QDir>
 
 #include "context.h"
 #include "gotocoordinatedialog.h"
@@ -658,6 +659,126 @@ void ViewerWindow::on_actionExportPNG_triggered(void)
   ui->viewWidget->setFocus(Qt::MouseFocusReason);
 }
 
+void ViewerWindow::exportPNGAtCoordinate(const QPointF& coordinate)
+{
+  LOG_STEP("Auto PNG export after coordinate navigation triggered");
+  
+  // Create export directory if it doesn't exist
+  QString exportDir = "C:/Users/sonng/OneDrive/Desktop/EExxport";
+  QDir dir;
+  if (!dir.exists(exportDir)) {
+    if (!dir.mkpath(exportDir)) {
+      LOG_ERROR("Failed to create export directory: " + exportDir);
+      QMessageBox::critical(this, tr("Export Failed"),
+                           tr("Failed to create export directory: %1").arg(exportDir));
+      return;
+    }
+  }
+  
+  // Create filename with coordinate information
+  QString coordStr = QString("_at_%1_%2")
+                     .arg(coordinate.x(), 0, 'f', 3)
+                     .arg(coordinate.y(), 0, 'f', 3);
+  
+  QString filename = QString("%1_%2%3").arg(m_job).arg(m_step).arg(coordStr);
+  
+  // Add layer names to the filename if there are visible layers
+  if (!m_visibles.isEmpty()) {
+    filename += "_";
+    for (int i = 0; i < qMin(m_visibles.size(), 3); ++i) {
+      if (i > 0) {
+        filename += "+";
+      }
+      filename += m_visibles[i]->name();
+    }
+    if (m_visibles.size() > 3) {
+      filename += QString("+%1more").arg(m_visibles.size() - 3);
+    }
+  }
+  
+  filename += ".png";
+  QString filePath = exportDir + "/" + filename;
+  
+  LOG_INFO(QString("Auto-exporting to PNG file: %1").arg(filePath));
+  
+  // Show progress message
+  QMessageBox msg(QMessageBox::Information, "Progress", "Auto-rendering coordinate image...");
+  msg.setStandardButtons(QMessageBox::NoButton);
+  msg.show();
+  QApplication::processEvents();
+  
+  try {
+    // Use current view resolution with 3x scale for automatic export
+    QRect viewRect = ui->viewWidget->viewport()->rect();
+    int scale = 3;
+    int imgWidth = viewRect.width() * scale;
+    int imgHeight = viewRect.height() * scale;
+    
+    LOG_INFO(QString("Creating auto-export image with dimensions: %1x%2").arg(imgWidth).arg(imgHeight));
+    QImage image(imgWidth, imgHeight, QImage::Format_ARGB32);
+    
+    if (image.isNull()) {
+      throw std::runtime_error("Failed to allocate memory for auto-export image");
+    }
+    
+    image.fill(ctx.bg_color);
+    
+    // Set up a painter for the image
+    QPainter painter(&image);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::TextAntialiasing, true);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+    
+    // Get the current scene rect
+    QRectF sceneRect = ui->viewWidget->mapToScene(viewRect).boundingRect();
+    QRectF targetRect = QRectF(0, 0, imgWidth, imgHeight);
+    
+    // Update message
+    msg.setText(tr("Auto-rendering image (%1x%2)...").arg(imgWidth).arg(imgHeight));
+    QApplication::processEvents();
+    
+    // Render the scene onto the image
+    LOG_INFO("Auto-rendering scene to image");
+    ui->viewWidget->scene()->render(&painter, targetRect, sceneRect);
+    
+    // Save the image
+    msg.setText(tr("Saving auto-export PNG file..."));
+    QApplication::processEvents();
+    
+    LOG_INFO("Auto-saving image to file");
+    bool success = image.save(filePath, "PNG");
+    
+    msg.hide();
+    
+    if (success) {
+      LOG_INFO(QString("Auto-export PNG file saved successfully: %1").arg(filePath));
+      QMessageBox::information(this, tr("Auto-Export Successful"),
+                              tr("Coordinate view has been automatically exported to:\n%1\n\nResolution: %2x%3 pixels\nCoordinate: (%4, %5) inches")
+                              .arg(filePath)
+                              .arg(imgWidth)
+                              .arg(imgHeight)
+                              .arg(coordinate.x(), 0, 'f', 3)
+                              .arg(coordinate.y(), 0, 'f', 3));
+    } else {
+      LOG_ERROR(QString("Failed to save auto-export PNG file: %1").arg(filePath));
+      QMessageBox::critical(this, tr("Auto-Export Failed"),
+                           tr("Failed to auto-save the coordinate view as PNG file. Please check file permissions."));
+    }
+  }
+  catch (const std::exception& e) {
+    LOG_ERROR(QString("Exception during auto-export PNG: %1").arg(e.what()));
+    msg.hide();
+    QMessageBox::critical(this, tr("Auto-Export Failed"),
+                         tr("Failed to create the auto-export PNG image: %1").arg(e.what()));
+  }
+  catch (...) {
+    LOG_ERROR("Unknown exception during auto-export PNG");
+    msg.hide();
+    QMessageBox::critical(this, tr("Auto-Export Failed"),
+                         tr("Failed to create the auto-export PNG image due to insufficient memory."));
+  }
+}
+
 void ViewerWindow::on_actionGoToCoordinate_triggered(void)
 {
   // Set the current display unit in the dialog
@@ -672,13 +793,19 @@ void ViewerWindow::on_actionGoToCoordinate_triggered(void)
              .arg(targetCoord.x())
              .arg(targetCoord.y()));
     
-    // Center the view on the target coordinate
-    ui->viewWidget->centerOn(targetCoord);
+    // Convert to scene coordinates (Y axis needs to be flipped to match display coordinate system)
+    QPointF sceneCoord(targetCoord.x(), -targetCoord.y());
     
-    // Zoom to a reasonable level (2x zoom)
-    ui->viewWidget->scaleView(16.0);
+    // Center the view on the target coordinate
+    ui->viewWidget->centerOn(sceneCoord);
+    
+    // Zoom to a reasonable level (64x zoom)
+    ui->viewWidget->scaleView(64.0);
     
     // Update focus
     ui->viewWidget->setFocus(Qt::MouseFocusReason);
+    
+    // Auto-export PNG after navigation
+    exportPNGAtCoordinate(targetCoord);
   }
 }
