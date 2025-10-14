@@ -24,6 +24,7 @@
 #define __MAINWINDOW_H__
 
 #include <QColor>
+#include <QJsonObject>
 #include <QLabel>
 #include <QList>
 #include <QMainWindow>
@@ -39,6 +40,9 @@
 #include "odbppgraphicsview.h"
 #include "structuredtextparser.h"
 #include "symbolcount.h"
+
+// Forward declarations
+class RestApiServer;
 
 namespace Ui {
 class ViewerWindow;
@@ -59,6 +63,14 @@ public:
   void clearLayout(QLayout* , bool deleteWidgets = true);
   void showLayer(QString name);
   virtual void show(void);
+  // ✅ THÊM: Navigation và capture methods
+  bool loadJobByName(const QString &jobName);
+  bool selectLayerByName(const QString &layerName);
+  void navigateToCoordinate(double x, double y);
+  void setZoomLevel(double zoom);
+  QPixmap captureCurrentView();
+  
+  void startRestApiServer(quint16 port = 8686);
 
 signals:
   void bgColorChanged(QColor);
@@ -84,6 +96,7 @@ public slots:
   void on_actionShowNotes_toggled(bool checked);
   void on_actionExportPNG_triggered(void);
   void on_actionGoToCoordinate_triggered(void);
+  void handleCaptureRequest(const QJsonObject &request);
 
 protected:
   QColor nextColor(void);
@@ -115,6 +128,9 @@ private:
   symbolcount m_symbolCountView;
   FeaturePropertiesDialog* m_featurePropertiesDialog;
   GoToCoordinateDialog* m_goToCoordinateDialog;
+  RestApiServer* m_restApiServer;
+  QString findJobPath(const QString &jobName);
+  void waitForRender(int milliseconds = 100);
 };
 
 #endif // __MAINWINDOW_H__

@@ -26,6 +26,11 @@
 #include <QtWidgets>
 #include <QDebug>
 #include <QDir>
+#include <QBuffer>
+#include <QPixmap>
+#include <QTimer>
+#include <QDateTime>
+#include <QEventLoop>
 
 #include "context.h"
 #include "gotocoordinatedialog.h"
@@ -33,10 +38,12 @@
 #include "logger.h"
 #include "settingsdialog.h"
 #include "settings.h"
+#include "restapi/restapiserver.h"
+
 
 ViewerWindow::ViewerWindow(QWidget *parent) :
   QMainWindow(parent), ui(new Ui::ViewerWindow), m_displayUnit(U_INCH),
-  m_activeInfoBox(NULL), m_transition(false)
+  m_activeInfoBox(NULL), m_transition(false), m_restApiServer(nullptr)
 {
   ui->setupUi(this);
   setAttribute(Qt::WA_DeleteOnClose);
@@ -83,6 +90,7 @@ ViewerWindow::ViewerWindow(QWidget *parent) :
 
   ui->viewWidget->setFocus(Qt::MouseFocusReason);
   ui->actionAreaZoom->setChecked(true);
+  startRestApiServer(8686);
 }
 
 ViewerWindow::~ViewerWindow()
@@ -808,4 +816,251 @@ void ViewerWindow::on_actionGoToCoordinate_triggered(void)
     // Auto-export PNG after navigation
     exportPNGAtCoordinate(targetCoord);
   }
+}
+
+void ViewerWindow::startRestApiServer(quint16 port)
+{
+    if (m_restApiServer) {
+        delete m_restApiServer;
+    }
+    
+    m_restApiServer = new RestApiServer(port, this);
+    
+    if (m_restApiServer->isListening()) {
+        qDebug() << "REST API server started on port" << port;
+        
+        // Kết nối signals
+        connect(m_restApiServer, &RestApiServer::captureRequest,
+                this, &ViewerWindow::handleCaptureRequest);
+    } else {
+        qDebug() << "Failed to start REST API server";
+    }
+}
+
+void ViewerWindow::handleCaptureRequest(const QJsonObject &request)
+{
+    qDebug() << "=== Capture Request Received ===";
+    qDebug() << request;
+    
+    QString requestId = request["requestId"].toString();
+    QString jobName = request["jobName"].toString();
+    QString layerName = request["layerName"].toString();
+    double x = request["x"].toDouble();
+    double y = request["y"].toDouble();
+    double zoom = request["zoom"].toDouble(1.0);
+    
+    // ✅ Validation
+    if (jobName.isEmpty()) {
+        qDebug() << "ERROR: jobName is empty";
+        return;
+    }
+    
+    // ✅ Step 1: Load job if needed
+    if (m_job != jobName) {
+        qDebug() << "Loading job:" << jobName;
+        if (!loadJobByName(jobName)) {
+            qDebug() << "ERROR: Failed to load job:" << jobName;
+            // TODO: Send error response
+            return;
+        }
+    }
+    
+    // ✅ Step 2: Select layer if needed
+    if (!layerName.isEmpty()) {
+        qDebug() << "Selecting layer:" << layerName;
+        if (!selectLayerByName(layerName)) {
+            qDebug() << "WARNING: Layer not found:" << layerName;
+            // Continue anyway, may not be critical
+        }
+    }
+    
+    // ✅ Step 3: Navigate to coordinate
+    qDebug() << "Navigating to coordinate:" << x << "," << y;
+    navigateToCoordinate(x, y);
+    
+    // ✅ Step 4: Set zoom level
+    qDebug() << "Setting zoom level:" << zoom;
+    setZoomLevel(zoom);
+    
+    // ✅ Step 5: Wait for rendering, then capture
+    QTimer::singleShot(200, this, [=]() {
+        qDebug() << "Capturing view...";
+        QPixmap pixmap = captureCurrentView();
+        
+        if (pixmap.isNull()) {
+            qDebug() << "ERROR: Captured pixmap is null";
+            return;
+        }
+        
+        // Convert to PNG
+        QByteArray imageData;
+        QBuffer buffer(&imageData);
+        buffer.open(QIODevice::WriteOnly);
+        pixmap.save(&buffer, "PNG");
+        
+        qDebug() << "Captured image:" << pixmap.width() << "x" << pixmap.height();
+        qDebug() << "Image size:" << imageData.size() << "bytes";
+        
+        // Build metadata
+        QJsonObject metadata;
+        metadata["requestId"] = requestId;
+        metadata["jobName"] = jobName;
+        metadata["layerName"] = layerName;
+        metadata["x"] = x;
+        metadata["y"] = y;
+        metadata["zoom"] = zoom;
+        metadata["imageWidth"] = pixmap.width();
+        metadata["imageHeight"] = pixmap.height();
+        metadata["imageSize"] = imageData.size();
+        metadata["format"] = "PNG";
+        metadata["timestamp"] = QDateTime::currentDateTime().toString(Qt::ISODate);
+        
+        // ✅ Send response back to client
+        if (m_restApiServer) {
+            m_restApiServer->sendCaptureResponse(requestId, imageData, metadata);
+            qDebug() << "Capture response sent";
+        } else {
+            qDebug() << "ERROR: REST API server is null";
+        }
+    });
+}
+
+bool ViewerWindow::loadJobByName(const QString &jobName)
+{
+    // ✅ Tìm file job
+    QString jobPath = findJobPath(jobName);
+    
+    if (jobPath.isEmpty()) {
+        qDebug() << "Job not found:" << jobName;
+        return false;
+    }
+    
+    qDebug() << "Loading job from:" << jobPath;
+    
+    // ✅ Load job using existing loader
+    // TODO: Thay thế bằng code load job thực tế của bạn
+    // Ví dụ:
+    // if (m_context.loader) {
+    //     return m_context.loader->load(jobPath);
+    // }
+    
+    // Tạm thời: giả sử load thành công
+    m_job = jobName;
+    return true;
+}
+
+QString ViewerWindow::findJobPath(const QString &jobName)
+{
+    // ✅ Tìm file .tgz trong thư mục jobs
+    QStringList searchPaths = {
+        QDir::currentPath() + "/jobs",
+        QDir::currentPath() + "/data/jobs",
+        QDir::homePath() + "/QCamber/jobs",
+        "C:/PCB/jobs"  // Thêm các path khác nếu cần
+    };
+    
+    QStringList extensions = {".tgz", ".tar.gz", ".zip"};
+    
+    for (const QString &basePath : searchPaths) {
+        for (const QString &ext : extensions) {
+            QString fullPath = basePath + "/" + jobName + ext;
+            if (QFile::exists(fullPath)) {
+                return fullPath;
+            }
+        }
+    }
+    
+    return QString();  // Not found
+}
+
+bool ViewerWindow::selectLayerByName(const QString &layerName)
+{
+    // ✅ Tìm và chọn layer trong m_SelectorMap
+    if (m_SelectorMap.contains(layerName)) {
+        LayerInfoBox *layerBox = m_SelectorMap[layerName];
+        if (layerBox) {
+            // Make sure layer is visible (toggle if not already)
+            if (!layerBox->isActive()) {
+                layerBox->toggle();
+            }
+            // Set as active layer
+            layerBox->setActive(true);
+            qDebug() << "Layer selected:" << layerName;
+            return true;
+        }
+    }
+    
+    qDebug() << "Layer not found in selector map:" << layerName;
+    return false;
+}
+
+void ViewerWindow::navigateToCoordinate(double x, double y)
+{
+    // ✅ Convert inch to scene units
+    // Giả sử: 1 inch = 1000 units (thay đổi theo project của bạn)
+    const double UNITS_PER_INCH = 1000.0;
+    
+    qreal sceneX = x * UNITS_PER_INCH;
+    qreal sceneY = y * UNITS_PER_INCH;
+    
+    // ✅ TODO: Lấy graphics view từ UI
+    // QGraphicsView *view = ui->graphicsView;  // Hoặc m_graphicsView
+    
+    // if (view && view->scene()) {
+    //     view->centerOn(sceneX, sceneY);
+    //     qDebug() << "Centered on:" << sceneX << "," << sceneY;
+    // }
+    
+    qDebug() << "Navigate to coordinate (scene units):" << sceneX << "," << sceneY;
+}
+
+void ViewerWindow::setZoomLevel(double zoom)
+{
+    // ✅ TODO: Set zoom trong graphics view
+    // QGraphicsView *view = ui->graphicsView;
+    
+    // if (view) {
+    //     // Get current scale
+    //     qreal currentScale = view->transform().m11();
+    //     
+    //     // Calculate scale factor
+    //     qreal scaleFactor = zoom / currentScale;
+    //     
+    //     // Apply scale
+    //     view->scale(scaleFactor, scaleFactor);
+    //     
+    //     qDebug() << "Zoom set to:" << zoom;
+    // }
+    
+    qDebug() << "Set zoom level:" << zoom;
+}
+
+QPixmap ViewerWindow::captureCurrentView()
+{
+    // ✅ TODO: Capture từ graphics view
+    // QGraphicsView *view = ui->graphicsView;
+    
+    // if (view && view->scene()) {
+    //     // Option 1: Capture viewport
+    //     QPixmap pixmap = view->viewport()->grab();
+    //     return pixmap;
+    //     
+    //     // Option 2: Render scene to pixmap
+    //     QRectF sceneRect = view->mapToScene(view->viewport()->rect()).boundingRect();
+    //     QPixmap pixmap(view->viewport()->size());
+    //     pixmap.fill(Qt::white);
+    //     QPainter painter(&pixmap);
+    //     view->scene()->render(&painter, QRectF(), sceneRect);
+    //     return pixmap;
+    // }
+    
+    // Tạm thời: capture toàn bộ window
+    return this->grab();
+}
+
+void ViewerWindow::waitForRender(int milliseconds)
+{
+    QEventLoop loop;
+    QTimer::singleShot(milliseconds, &loop, &QEventLoop::quit);
+    loop.exec();
 }
