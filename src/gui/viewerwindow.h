@@ -63,14 +63,13 @@ public:
   void clearLayout(QLayout* , bool deleteWidgets = true);
   void showLayer(QString name);
   virtual void show(void);
-  // ✅ THÊM: Navigation và capture methods
-  bool loadJobByName(const QString &jobName);
-  bool selectLayerByName(const QString &layerName);
-  void navigateToCoordinate(double x, double y);
-  void setZoomLevel(double zoom);
-  QPixmap captureCurrentView();
   
+  // ✅ REST API server
   void startRestApiServer(quint16 port = 8686);
+  
+  // ✅ Unified navigate and capture method
+  bool navigateAndCapture(const QString &layerName, double x, double y, double zoom,
+                         QString *outputPath = nullptr, QByteArray *imageData = nullptr);
 
 signals:
   void bgColorChanged(QColor);
@@ -111,8 +110,6 @@ private slots:
   void updateMeasureResult(QRectF rect);
 
 private:
-  void exportPNGAtCoordinate(const QPointF& coordinate);
-  
   Ui::ViewerWindow *ui;
   QString m_job;
   QString m_step;

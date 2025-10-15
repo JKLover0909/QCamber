@@ -667,126 +667,6 @@ void ViewerWindow::on_actionExportPNG_triggered(void)
   ui->viewWidget->setFocus(Qt::MouseFocusReason);
 }
 
-void ViewerWindow::exportPNGAtCoordinate(const QPointF& coordinate)
-{
-  LOG_STEP("Auto PNG export after coordinate navigation triggered");
-  
-  // Create export directory if it doesn't exist
-  QString exportDir = "C:/Users/sonng/OneDrive/Desktop/EExxport";
-  QDir dir;
-  if (!dir.exists(exportDir)) {
-    if (!dir.mkpath(exportDir)) {
-      LOG_ERROR("Failed to create export directory: " + exportDir);
-      QMessageBox::critical(this, tr("Export Failed"),
-                           tr("Failed to create export directory: %1").arg(exportDir));
-      return;
-    }
-  }
-  
-  // Create filename with coordinate information
-  QString coordStr = QString("_at_%1_%2")
-                     .arg(coordinate.x(), 0, 'f', 3)
-                     .arg(coordinate.y(), 0, 'f', 3);
-  
-  QString filename = QString("%1_%2%3").arg(m_job).arg(m_step).arg(coordStr);
-  
-  // Add layer names to the filename if there are visible layers
-  if (!m_visibles.isEmpty()) {
-    filename += "_";
-    for (int i = 0; i < qMin(m_visibles.size(), 3); ++i) {
-      if (i > 0) {
-        filename += "+";
-      }
-      filename += m_visibles[i]->name();
-    }
-    if (m_visibles.size() > 3) {
-      filename += QString("+%1more").arg(m_visibles.size() - 3);
-    }
-  }
-  
-  filename += ".png";
-  QString filePath = exportDir + "/" + filename;
-  
-  LOG_INFO(QString("Auto-exporting to PNG file: %1").arg(filePath));
-  
-  // Show progress message
-  QMessageBox msg(QMessageBox::Information, "Progress", "Auto-rendering coordinate image...");
-  msg.setStandardButtons(QMessageBox::NoButton);
-  msg.show();
-  QApplication::processEvents();
-  
-  try {
-    // Use current view resolution with 3x scale for automatic export
-    QRect viewRect = ui->viewWidget->viewport()->rect();
-    int scale = 3;
-    int imgWidth = viewRect.width() * scale;
-    int imgHeight = viewRect.height() * scale;
-    
-    LOG_INFO(QString("Creating auto-export image with dimensions: %1x%2").arg(imgWidth).arg(imgHeight));
-    QImage image(imgWidth, imgHeight, QImage::Format_ARGB32);
-    
-    if (image.isNull()) {
-      throw std::runtime_error("Failed to allocate memory for auto-export image");
-    }
-    
-    image.fill(ctx.bg_color);
-    
-    // Set up a painter for the image
-    QPainter painter(&image);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-    painter.setRenderHint(QPainter::TextAntialiasing, true);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
-    
-    // Get the current scene rect
-    QRectF sceneRect = ui->viewWidget->mapToScene(viewRect).boundingRect();
-    QRectF targetRect = QRectF(0, 0, imgWidth, imgHeight);
-    
-    // Update message
-    msg.setText(tr("Auto-rendering image (%1x%2)...").arg(imgWidth).arg(imgHeight));
-    QApplication::processEvents();
-    
-    // Render the scene onto the image
-    LOG_INFO("Auto-rendering scene to image");
-    ui->viewWidget->scene()->render(&painter, targetRect, sceneRect);
-    
-    // Save the image
-    msg.setText(tr("Saving auto-export PNG file..."));
-    QApplication::processEvents();
-    
-    LOG_INFO("Auto-saving image to file");
-    bool success = image.save(filePath, "PNG");
-    
-    msg.hide();
-    
-    if (success) {
-      LOG_INFO(QString("Auto-export PNG file saved successfully: %1").arg(filePath));
-      QMessageBox::information(this, tr("Auto-Export Successful"),
-                              tr("Coordinate view has been automatically exported to:\n%1\n\nResolution: %2x%3 pixels\nCoordinate: (%4, %5) inches")
-                              .arg(filePath)
-                              .arg(imgWidth)
-                              .arg(imgHeight)
-                              .arg(coordinate.x(), 0, 'f', 3)
-                              .arg(coordinate.y(), 0, 'f', 3));
-    } else {
-      LOG_ERROR(QString("Failed to save auto-export PNG file: %1").arg(filePath));
-      QMessageBox::critical(this, tr("Auto-Export Failed"),
-                           tr("Failed to auto-save the coordinate view as PNG file. Please check file permissions."));
-    }
-  }
-  catch (const std::exception& e) {
-    LOG_ERROR(QString("Exception during auto-export PNG: %1").arg(e.what()));
-    msg.hide();
-    QMessageBox::critical(this, tr("Auto-Export Failed"),
-                         tr("Failed to create the auto-export PNG image: %1").arg(e.what()));
-  }
-  catch (...) {
-    LOG_ERROR("Unknown exception during auto-export PNG");
-    msg.hide();
-    QMessageBox::critical(this, tr("Auto-Export Failed"),
-                         tr("Failed to create the auto-export PNG image due to insufficient memory."));
-  }
-}
-
 void ViewerWindow::on_actionGoToCoordinate_triggered(void)
 {
   // Set the current display unit in the dialog
@@ -801,21 +681,135 @@ void ViewerWindow::on_actionGoToCoordinate_triggered(void)
              .arg(targetCoord.x())
              .arg(targetCoord.y()));
     
-    // Convert to scene coordinates (Y axis needs to be flipped to match display coordinate system)
-    QPointF sceneCoord(targetCoord.x(), -targetCoord.y());
+    // Use unified navigate and capture method
+    QString savedFilePath;
+    bool success = navigateAndCapture("", targetCoord.x(), targetCoord.y(), 64.0, &savedFilePath, nullptr);
     
-    // Center the view on the target coordinate
+    if (success) {
+      // Show success message
+      QMessageBox::information(this, tr("Auto-Export Successful"),
+                              tr("Coordinate view has been automatically exported to:\n%1\n\nCoordinate: (%2, %3) inches")
+                              .arg(savedFilePath)
+                              .arg(targetCoord.x(), 0, 'f', 3)
+                              .arg(targetCoord.y(), 0, 'f', 3));
+    } else {
+      QMessageBox::critical(this, tr("Auto-Export Failed"),
+                           tr("Failed to navigate and capture the coordinate view."));
+    }
+  }
+}
+
+// ✅ Unified method: Navigate to coordinate and capture image
+bool ViewerWindow::navigateAndCapture(const QString &layerName, double x, double y, double zoom,
+                                     QString *outputPath, QByteArray *imageData)
+{
+    LOG_INFO(QString("navigateAndCapture: layer=%1, x=%2, y=%3, zoom=%4")
+             .arg(layerName).arg(x).arg(y).arg(zoom));
+    
+    // Step 1: Select the layer by name using m_SelectorMap
+    if (!layerName.isEmpty()) {
+        if (m_SelectorMap.contains(layerName)) {
+            LayerInfoBox* box = m_SelectorMap[layerName];
+            if (box) {
+                LOG_INFO(QString("Found layer: %1").arg(layerName));
+                // Make sure layer is visible (toggle if not already)
+                if (!box->isActive()) {
+                    box->toggle();
+                }
+                // Set as active layer
+                box->setActive(true);
+            }
+        } else {
+            LOG_ERROR(QString("Layer not found: %1").arg(layerName));
+            return false;
+        }
+    }
+    
+    // Step 2: Convert to scene coordinates and navigate
+    QPointF targetCoord(x, y);  // Input is in inches
+    QPointF sceneCoord(x, -y);  // Y axis needs to be flipped to match display coordinate system
+    
+    LOG_INFO(QString("Centering view on coordinate: (%1, %2) inches -> scene(%3, %4)")
+             .arg(x).arg(y).arg(sceneCoord.x()).arg(sceneCoord.y()));
     ui->viewWidget->centerOn(sceneCoord);
     
-    // Zoom to a reasonable level (64x zoom)
-    ui->viewWidget->scaleView(64.0);
-    
-    // Update focus
+    // Step 3: Apply zoom
+    LOG_INFO(QString("Applying zoom: %1x").arg(zoom));
+    ui->viewWidget->scaleView(zoom);
     ui->viewWidget->setFocus(Qt::MouseFocusReason);
     
-    // Auto-export PNG after navigation
-    exportPNGAtCoordinate(targetCoord);
-  }
+    // Step 4: Create export directory
+    QString exportDir = "C:/Users/sonng/OneDrive/Desktop/EExxport";
+    QDir dir;
+    if (!dir.exists(exportDir)) {
+        if (!dir.mkpath(exportDir)) {
+            LOG_ERROR("Failed to create export directory: " + exportDir);
+            return false;
+        }
+    }
+    
+    // Step 5: Generate filename
+    QString coordStr = QString("_at_%1_%2")
+                       .arg(targetCoord.x(), 0, 'f', 3)
+                       .arg(targetCoord.y(), 0, 'f', 3);
+    
+    QString filename = QString("%1_%2%3_%4").arg(m_job).arg(m_step).arg(layerName).arg(coordStr);
+    filename += ".png";
+    QString filePath = exportDir + "/" + filename;
+    
+    LOG_INFO(QString("Rendering image to: %1").arg(filePath));
+    
+    // Step 6: Capture image using current view resolution with 3x scale
+    QRect viewRect = ui->viewWidget->viewport()->rect();
+    int scale = 3;
+    int imgWidth = viewRect.width() * scale;
+    int imgHeight = viewRect.height() * scale;
+    
+    LOG_INFO(QString("Creating image with dimensions: %1x%2").arg(imgWidth).arg(imgHeight));
+    QImage image(imgWidth, imgHeight, QImage::Format_ARGB32);
+    
+    if (image.isNull()) {
+        LOG_ERROR("Failed to allocate memory for image");
+        return false;
+    }
+    
+    image.fill(ctx.bg_color);
+    
+    // Step 7: Render the scene
+    QPainter painter(&image);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setRenderHint(QPainter::TextAntialiasing, true);
+    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+    
+    QRectF sceneRect = ui->viewWidget->mapToScene(viewRect).boundingRect();
+    QRectF targetRect = QRectF(0, 0, imgWidth, imgHeight);
+    
+    LOG_INFO("Rendering scene to image");
+    ui->viewWidget->scene()->render(&painter, targetRect, sceneRect);
+    
+    // Step 8: Save to file if requested
+    if (outputPath) {
+        LOG_INFO("Saving image to file");
+        if (!image.save(filePath, "PNG")) {
+            LOG_ERROR(QString("Failed to save PNG file: %1").arg(filePath));
+            return false;
+        }
+        *outputPath = filePath;
+        LOG_INFO(QString("PNG file saved successfully: %1").arg(filePath));
+    }
+    
+    // Step 9: Convert to byte array if requested
+    if (imageData) {
+        QBuffer buffer(imageData);
+        buffer.open(QIODevice::WriteOnly);
+        if (!image.save(&buffer, "PNG")) {
+            LOG_ERROR("Failed to convert image to byte array");
+            return false;
+        }
+        LOG_INFO(QString("Image converted to byte array: %1 bytes").arg(imageData->size()));
+    }
+    
+    return true;
 }
 
 void ViewerWindow::startRestApiServer(quint16 port)
@@ -839,7 +833,7 @@ void ViewerWindow::startRestApiServer(quint16 port)
 
 void ViewerWindow::handleCaptureRequest(const QJsonObject &request)
 {
-    qDebug() << "=== Capture Request Received ===";
+    LOG_INFO("=== REST API Capture Request Received ===");
     qDebug() << request;
     
     QString requestId = request["requestId"].toString();
@@ -847,220 +841,56 @@ void ViewerWindow::handleCaptureRequest(const QJsonObject &request)
     QString layerName = request["layerName"].toString();
     double x = request["x"].toDouble();
     double y = request["y"].toDouble();
-    double zoom = request["zoom"].toDouble(1.0);
+    double zoom = request["zoom"].toDouble(64.0);  // Default to 64x zoom
     
-    // ✅ Validation
+    // Validation
     if (jobName.isEmpty()) {
-        qDebug() << "ERROR: jobName is empty";
+        LOG_ERROR("jobName is empty");
         return;
     }
     
-    // ✅ Step 1: Load job if needed
+    // Load job if needed (currently not implemented - assuming job is already loaded)
     if (m_job != jobName) {
-        qDebug() << "Loading job:" << jobName;
-        if (!loadJobByName(jobName)) {
-            qDebug() << "ERROR: Failed to load job:" << jobName;
-            // TODO: Send error response
-            return;
-        }
+        LOG_WARNING(QString("Job name mismatch: current=%1, requested=%2 (job loading not implemented)")
+                   .arg(m_job).arg(jobName));
+        // Continue anyway - use current job
     }
     
-    // ✅ Step 2: Select layer if needed
-    if (!layerName.isEmpty()) {
-        qDebug() << "Selecting layer:" << layerName;
-        if (!selectLayerByName(layerName)) {
-            qDebug() << "WARNING: Layer not found:" << layerName;
-            // Continue anyway, may not be critical
-        }
-    }
-    
-    // ✅ Step 3: Navigate to coordinate
-    qDebug() << "Navigating to coordinate:" << x << "," << y;
-    navigateToCoordinate(x, y);
-    
-    // ✅ Step 4: Set zoom level
-    qDebug() << "Setting zoom level:" << zoom;
-    setZoomLevel(zoom);
-    
-    // ✅ Step 5: Wait for rendering, then capture
-    QTimer::singleShot(200, this, [=]() {
-        qDebug() << "Capturing view...";
-        QPixmap pixmap = captureCurrentView();
-        
-        if (pixmap.isNull()) {
-            qDebug() << "ERROR: Captured pixmap is null";
-            return;
-        }
-        
-        // Convert to PNG
+    // Wait a bit to ensure UI is ready, then navigate and capture
+    QTimer::singleShot(100, this, [=]() {
+        QString savedFilePath;
         QByteArray imageData;
-        QBuffer buffer(&imageData);
-        buffer.open(QIODevice::WriteOnly);
-        pixmap.save(&buffer, "PNG");
         
-        qDebug() << "Captured image:" << pixmap.width() << "x" << pixmap.height();
-        qDebug() << "Image size:" << imageData.size() << "bytes";
+        // Use unified navigate and capture method
+        bool success = navigateAndCapture(layerName, x, y, zoom, &savedFilePath, &imageData);
+        
+        if (!success) {
+            LOG_ERROR("Failed to navigate and capture image");
+            return;
+        }
+        
+        LOG_INFO(QString("Capture successful: %1 bytes, saved to %2")
+                .arg(imageData.size()).arg(savedFilePath));
         
         // Build metadata
         QJsonObject metadata;
         metadata["requestId"] = requestId;
-        metadata["jobName"] = jobName;
+        metadata["jobName"] = m_job;  // Use actual current job name
         metadata["layerName"] = layerName;
         metadata["x"] = x;
         metadata["y"] = y;
         metadata["zoom"] = zoom;
-        metadata["imageWidth"] = pixmap.width();
-        metadata["imageHeight"] = pixmap.height();
         metadata["imageSize"] = imageData.size();
         metadata["format"] = "PNG";
+        metadata["savedPath"] = savedFilePath;
         metadata["timestamp"] = QDateTime::currentDateTime().toString(Qt::ISODate);
         
-        // ✅ Send response back to client
+        // Send response back to client
         if (m_restApiServer) {
             m_restApiServer->sendCaptureResponse(requestId, imageData, metadata);
-            qDebug() << "Capture response sent";
+            LOG_INFO("Capture response sent to client");
         } else {
-            qDebug() << "ERROR: REST API server is null";
+            LOG_ERROR("REST API server is null");
         }
     });
-}
-
-bool ViewerWindow::loadJobByName(const QString &jobName)
-{
-    // ✅ Tìm file job
-    QString jobPath = findJobPath(jobName);
-    
-    if (jobPath.isEmpty()) {
-        qDebug() << "Job not found:" << jobName;
-        return false;
-    }
-    
-    qDebug() << "Loading job from:" << jobPath;
-    
-    // ✅ Load job using existing loader
-    // TODO: Thay thế bằng code load job thực tế của bạn
-    // Ví dụ:
-    // if (m_context.loader) {
-    //     return m_context.loader->load(jobPath);
-    // }
-    
-    // Tạm thời: giả sử load thành công
-    m_job = jobName;
-    return true;
-}
-
-QString ViewerWindow::findJobPath(const QString &jobName)
-{
-    // ✅ Tìm file .tgz trong thư mục jobs
-    QStringList searchPaths = {
-        QDir::currentPath() + "/jobs",
-        QDir::currentPath() + "/data/jobs",
-        QDir::homePath() + "/QCamber/jobs",
-        "C:/PCB/jobs"  // Thêm các path khác nếu cần
-    };
-    
-    QStringList extensions = {".tgz", ".tar.gz", ".zip"};
-    
-    for (const QString &basePath : searchPaths) {
-        for (const QString &ext : extensions) {
-            QString fullPath = basePath + "/" + jobName + ext;
-            if (QFile::exists(fullPath)) {
-                return fullPath;
-            }
-        }
-    }
-    
-    return QString();  // Not found
-}
-
-bool ViewerWindow::selectLayerByName(const QString &layerName)
-{
-    // ✅ Tìm và chọn layer trong m_SelectorMap
-    if (m_SelectorMap.contains(layerName)) {
-        LayerInfoBox *layerBox = m_SelectorMap[layerName];
-        if (layerBox) {
-            // Make sure layer is visible (toggle if not already)
-            if (!layerBox->isActive()) {
-                layerBox->toggle();
-            }
-            // Set as active layer
-            layerBox->setActive(true);
-            qDebug() << "Layer selected:" << layerName;
-            return true;
-        }
-    }
-    
-    qDebug() << "Layer not found in selector map:" << layerName;
-    return false;
-}
-
-void ViewerWindow::navigateToCoordinate(double x, double y)
-{
-    // ✅ Convert inch to scene units
-    // Giả sử: 1 inch = 1000 units (thay đổi theo project của bạn)
-    const double UNITS_PER_INCH = 1000.0;
-    
-    qreal sceneX = x * UNITS_PER_INCH;
-    qreal sceneY = y * UNITS_PER_INCH;
-    
-    // ✅ TODO: Lấy graphics view từ UI
-    // QGraphicsView *view = ui->graphicsView;  // Hoặc m_graphicsView
-    
-    // if (view && view->scene()) {
-    //     view->centerOn(sceneX, sceneY);
-    //     qDebug() << "Centered on:" << sceneX << "," << sceneY;
-    // }
-    
-    qDebug() << "Navigate to coordinate (scene units):" << sceneX << "," << sceneY;
-}
-
-void ViewerWindow::setZoomLevel(double zoom)
-{
-    // ✅ TODO: Set zoom trong graphics view
-    // QGraphicsView *view = ui->graphicsView;
-    
-    // if (view) {
-    //     // Get current scale
-    //     qreal currentScale = view->transform().m11();
-    //     
-    //     // Calculate scale factor
-    //     qreal scaleFactor = zoom / currentScale;
-    //     
-    //     // Apply scale
-    //     view->scale(scaleFactor, scaleFactor);
-    //     
-    //     qDebug() << "Zoom set to:" << zoom;
-    // }
-    
-    qDebug() << "Set zoom level:" << zoom;
-}
-
-QPixmap ViewerWindow::captureCurrentView()
-{
-    // ✅ TODO: Capture từ graphics view
-    // QGraphicsView *view = ui->graphicsView;
-    
-    // if (view && view->scene()) {
-    //     // Option 1: Capture viewport
-    //     QPixmap pixmap = view->viewport()->grab();
-    //     return pixmap;
-    //     
-    //     // Option 2: Render scene to pixmap
-    //     QRectF sceneRect = view->mapToScene(view->viewport()->rect()).boundingRect();
-    //     QPixmap pixmap(view->viewport()->size());
-    //     pixmap.fill(Qt::white);
-    //     QPainter painter(&pixmap);
-    //     view->scene()->render(&painter, QRectF(), sceneRect);
-    //     return pixmap;
-    // }
-    
-    // Tạm thời: capture toàn bộ window
-    return this->grab();
-}
-
-void ViewerWindow::waitForRender(int milliseconds)
-{
-    QEventLoop loop;
-    QTimer::singleShot(milliseconds, &loop, &QEventLoop::quit);
-    loop.exec();
 }
