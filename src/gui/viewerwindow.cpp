@@ -677,21 +677,26 @@ void ViewerWindow::on_actionGoToCoordinate_triggered(void)
     // Get the coordinate (always in inches)
     QPointF targetCoord = m_goToCoordinateDialog->getCoordinate();
     
-    LOG_INFO(QString("Going to coordinate: (%1, %2) inches")
-             .arg(targetCoord.x())
-             .arg(targetCoord.y()));
+    // Get the zoom level from dialog
+    double zoomLevel = m_goToCoordinateDialog->getZoomLevel();
     
-    // Use unified navigate and capture method
+    LOG_INFO(QString("Going to coordinate: (%1, %2) inches with zoom %3x")
+             .arg(targetCoord.x())
+             .arg(targetCoord.y())
+             .arg(zoomLevel));
+    
+    // Use unified navigate and capture method with user-selected zoom
     QString savedFilePath;
-    bool success = navigateAndCapture("", targetCoord.x(), targetCoord.y(), 64.0, &savedFilePath, nullptr);
+    bool success = navigateAndCapture("", targetCoord.x(), targetCoord.y(), zoomLevel, &savedFilePath, nullptr);
     
     if (success) {
       // Show success message
       QMessageBox::information(this, tr("Auto-Export Successful"),
-                              tr("Coordinate view has been automatically exported to:\n%1\n\nCoordinate: (%2, %3) inches")
+                              tr("Coordinate view has been automatically exported to:\n%1\n\nCoordinate: (%2, %3) inches\nZoom: %4x")
                               .arg(savedFilePath)
                               .arg(targetCoord.x(), 0, 'f', 3)
-                              .arg(targetCoord.y(), 0, 'f', 3));
+                              .arg(targetCoord.y(), 0, 'f', 3)
+                              .arg(zoomLevel));
     } else {
       QMessageBox::critical(this, tr("Auto-Export Failed"),
                            tr("Failed to navigate and capture the coordinate view."));
@@ -733,9 +738,9 @@ bool ViewerWindow::navigateAndCapture(const QString &layerName, double x, double
              .arg(x).arg(y).arg(sceneCoord.x()).arg(sceneCoord.y()));
     ui->viewWidget->centerOn(sceneCoord);
     
-    // Step 3: Apply zoom
-    LOG_INFO(QString("Applying zoom: %1x").arg(zoom));
-    ui->viewWidget->scaleView(zoom);
+    // Step 3: Apply absolute zoom (reset to base first, then apply requested zoom)
+    LOG_INFO(QString("Applying absolute zoom: %1x").arg(zoom));
+    ui->viewWidget->setAbsoluteZoom(zoom);
     ui->viewWidget->setFocus(Qt::MouseFocusReason);
     
     // Step 4: Create export directory

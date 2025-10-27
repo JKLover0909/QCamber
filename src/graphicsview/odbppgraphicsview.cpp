@@ -67,6 +67,14 @@ void ODBPPGraphicsView::scaleView(qreal scaleFactor)
   setTransformationAnchor(AnchorUnderMouse);
 }
 
+void ODBPPGraphicsView::setAbsoluteZoom(qreal zoomLevel)
+{
+  // Reset transform to identity first, then apply absolute zoom
+  resetTransform();
+  scale(zoomLevel, zoomLevel);
+  setTransformationAnchor(AnchorViewCenter);
+}
+
 void ODBPPGraphicsView::scrollView(int dx, int dy)
 {
   QScrollBar* hsb = horizontalScrollBar();

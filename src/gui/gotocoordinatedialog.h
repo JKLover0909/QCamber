@@ -33,6 +33,9 @@ public:
     // Get the coordinate in the selected unit
     QPointF getCoordinate() const;
     
+    // Get the selected zoom level
+    double getZoomLevel() const;
+    
     // Set the current display unit (0=Inch, 1=MM)
     void setDisplayUnit(int unit);
 
@@ -49,14 +52,17 @@ private:
     QDoubleSpinBox* m_xSpinBox;
     QDoubleSpinBox* m_ySpinBox;
     QComboBox* m_unitComboBox;
+    QComboBox* m_zoomComboBox;
     QPushButton* m_goToButton;
     QPushButton* m_cancelButton;
     QLabel* m_xLabel;
     QLabel* m_yLabel;
     QLabel* m_unitLabel;
+    QLabel* m_zoomLabel;
     
     int m_currentUnit; // 0=Inch, 1=MM
     QPointF m_coordinate; // Always stored in inches internally
+    double m_zoomLevel;
 };
 
 #endif // GOTOCOORDINATEDIALOG_H

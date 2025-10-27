@@ -54,6 +54,7 @@ public:
   void zoomToAll(void);
   void scaleView(qreal scaleFactor);
   void scrollView(int dx, int dy);
+  void setAbsoluteZoom(qreal zoomLevel);  // Set absolute zoom level (reset to base first)
 
 signals:
   void sceneRectChanged(QRectF);

@@ -23,18 +23,21 @@ GoToCoordinateDialog::GoToCoordinateDialog(QWidget *parent)
     , m_xSpinBox(nullptr)
     , m_ySpinBox(nullptr)
     , m_unitComboBox(nullptr)
+    , m_zoomComboBox(nullptr)
     , m_goToButton(nullptr)
     , m_cancelButton(nullptr)
     , m_xLabel(nullptr)
     , m_yLabel(nullptr)
     , m_unitLabel(nullptr)
+    , m_zoomLabel(nullptr)
     , m_currentUnit(0) // Default to inches
     , m_coordinate(0.0, 0.0)
+    , m_zoomLevel(128.0) // Default zoom level changed to 128x
 {
     setupUI();
     setWindowTitle(tr("Go To Coordinate"));
     setModal(true);
-    resize(300, 200);
+    resize(320, 250);
 }
 
 GoToCoordinateDialog::~GoToCoordinateDialog()
@@ -73,6 +76,23 @@ void GoToCoordinateDialog::setupUI()
     m_unitComboBox->addItem(tr("MM"));
     m_unitComboBox->setCurrentIndex(0);
     
+    // Zoom selection
+    m_zoomLabel = new QLabel(tr("Zoom:"), this);
+    m_zoomComboBox = new QComboBox(this);
+    
+    // Add common zoom levels
+    QStringList zoomLevels = {
+        "1x", "2x", "4x", "8x", "16x", "32x", "64x", 
+        "128x", "256x", "512x", "1024x"
+    };
+    
+    foreach (const QString& level, zoomLevels) {
+        m_zoomComboBox->addItem(level);
+    }
+    
+    // Set default to 128x (index 7)
+    m_zoomComboBox->setCurrentIndex(7);
+    
     // Add to grid layout
     coordLayout->addWidget(m_xLabel, 0, 0);
     coordLayout->addWidget(m_xSpinBox, 0, 1);
@@ -80,6 +100,8 @@ void GoToCoordinateDialog::setupUI()
     coordLayout->addWidget(m_ySpinBox, 1, 1);
     coordLayout->addWidget(m_unitLabel, 2, 0);
     coordLayout->addWidget(m_unitComboBox, 2, 1);
+    coordLayout->addWidget(m_zoomLabel, 3, 0);
+    coordLayout->addWidget(m_zoomComboBox, 3, 1);
     
     // Create button layout
     QHBoxLayout* buttonLayout = new QHBoxLayout();
@@ -157,6 +179,12 @@ void GoToCoordinateDialog::onGoToClicked()
     }
     
     m_coordinate = QPointF(x, y);
+    
+    // Parse zoom level from combo box (remove "x" suffix)
+    QString zoomText = m_zoomComboBox->currentText();
+    zoomText.chop(1); // Remove "x" character
+    m_zoomLevel = zoomText.toDouble();
+    
     accept();
 }
 
@@ -168,6 +196,11 @@ void GoToCoordinateDialog::onCancelClicked()
 QPointF GoToCoordinateDialog::getCoordinate() const
 {
     return m_coordinate;
+}
+
+double GoToCoordinateDialog::getZoomLevel() const
+{
+    return m_zoomLevel;
 }
 
 void GoToCoordinateDialog::setDisplayUnit(int unit)
